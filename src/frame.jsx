@@ -1,9 +1,8 @@
 import './frame.css';
-
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 
-function Calendar() {
+function Frame() {
   const load = () => {
     const visible = document.querySelector('.project-menu');
     const isDisplayed = visible.style.display !== 'none';
@@ -100,4 +99,4 @@ function Calendar() {
   );
 }
 
-export default Calendar;
+export default Frame;
