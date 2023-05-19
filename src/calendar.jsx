@@ -1,4 +1,11 @@
-import './calendar.css';
+import React from 'react';
 
-import FullCalendar from '@fullcalendar/react'; // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid';
+function Calendar() {
+  return (
+    <div>
+      <div className="cal">확인용1</div>
+    </div>
+  );
+}
+
+export default Calendar;

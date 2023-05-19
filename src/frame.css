@@ -6,14 +6,19 @@ html,
 body {
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 1vh;
   font-weight: 400;
   line-height: 1.4;
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
   color: #000;
   width: 100%;
+  height: 110vh;
 }
+
+.btn1 {
+}
+
 img {
   display: block;
 }
@@ -40,21 +45,22 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  height: 200px;
+  height: 15vh;
   z-index: 2;
 }
 
 /* Header */
 
 header .header__contents {
-  font-size: 50px;
+  font-size: 4vh;
   width: 60%;
-  height: 200px;
+  height: 15vh;
   position: absolute;
   right: 25%;
   display: flex;
   align-items: center;
   font-weight: 700;
+  z-index: 4;
 }
 
 header .header__contents .header__contents__detail {
@@ -65,43 +71,35 @@ header .header__contents .header__contents__detail {
   align-items: center;
 }
 
-header .header__contents .header__contents__detail::before {
-}
-
 header .btnOutline {
   position: absolute;
-  left: 0;
   height: 100%;
 }
 
 .hamburger {
-  font-size: 75px;
   cursor: grab;
-  height: 75px;
-  width: 75px;
+  height: 5vh;
+  width: 5vh;
   position: absolute;
   top: 0;
   bottom: 0;
   margin: auto;
-  left: 30px;
+  left: 4vw;
 }
 
 .close {
-  font-size: 75px;
   cursor: grab;
-  height: 75px;
-  width: 75px;
+  height: 5vh;
+  width: 5vh;
   position: absolute;
 }
 
 #menuClBtn {
-  font-size: 75px;
-  width: 150px;
+  width: 6vw;
   cursor: grab;
-  height: 75px;
-  position: relative;
-  margin-top: 60px;
-  margin-left: 40px;
+  height: 6vw;
+  padding-top: 5vh;
+  padding-left: 4vw;
 }
 
 /* MENU */
@@ -109,27 +107,25 @@ header .btnOutline {
 .project-menu {
   margin-top: 0;
   padding-left: 0;
-  height: 100%;
-  width: 350px;
+  height: 100vh;
+  width: 26vh;
   background-color: #f6f5f0;
   z-index: 3;
   position: fixed;
   font-size: 25px;
   line-height: 1.5;
-  left: 0;
   display: none;
   top: 0;
   text-align: left;
 }
 
 .project-menu .menu__contents .menu__ul .menu {
-  font-size: 45px;
-  padding-top: 5px;
+  font-size: 3vh;
 }
 
 .project-menu .menu__contents .menu__ul .menu__li {
-  padding: 35px 0;
-  font-size: 25px;
+  padding: 3vh 0;
+  font-size: 2vh;
 }
 
 .project-menu .menu__contents .menu__ul .menu__li:hover {
@@ -137,7 +133,7 @@ header .btnOutline {
 }
 
 .menuBtn__outline {
-  height: 140px;
+  height: 15vh;
   border-bottom: 1px solid #c8c8c8;
 }
 
@@ -145,29 +141,29 @@ header .btnOutline {
 
 .footer {
   width: 100%;
-  height: 250px;
-  font-size: 25px;
+  height: 18vh;
+  font-size: 2vh;
   color: #706e68;
   background-color: #222;
   position: absolute;
-  bottom: 0;
-  z-index: 4;
+  bottom: -20vh;
   display: flex;
   left: 0;
+  z-index: 4;
 }
 
 .footer .useAPI {
-  margin-top: 15px;
-  height: 100px;
+  margin-top: 2vh;
+  height: 7vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .footer .GitHub {
-  height: 100px;
+  height: 7vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 2vh;
 }
