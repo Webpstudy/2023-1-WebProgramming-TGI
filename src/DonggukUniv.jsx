@@ -81,6 +81,7 @@ const DonggukUniv = () => {
       <LittleRoundedShape />
       <ShapeTextcenter>동대입구</ShapeTextcenter>
       <LittleRoundedShapeRight />
+
       <RoundedShapeRight>
         <ShapeTextright>약수</ShapeTextright>
       </RoundedShapeRight>
