@@ -38,6 +38,7 @@ const LittleRoundedShape = styled.div`
   border-bottom: 1px solid #f9ae00;
   border-top: 1px solid #f9ae00;
   background-color: #ffffff;
+  padding-left: 10px;
 `;
 const LittleRoundedShapeRight = styled.div`
   width: 3vw;
@@ -48,6 +49,7 @@ const LittleRoundedShapeRight = styled.div`
   border-bottom: 1px solid #f9ae00;
   border-top: 1px solid #f9ae00;
   background-color: #ffffff;
+  padding-right: 10px;
 `;
 
 const ShapeTextleft = styled.span`
@@ -72,21 +74,21 @@ const ShapeTextcenter = styled.span`
   align-items: center;
 `;
 
-const DonggukUniv = () => {
+const ChungMuRo3 = () => {
   return (
     <ShapeContainer>
       <RoundedShape>
-        <ShapeTextleft> 충무로 </ShapeTextleft>
+        <ShapeTextleft> 을지로 3가 </ShapeTextleft>
       </RoundedShape>
       <LittleRoundedShape />
-      <ShapeTextcenter>동대입구</ShapeTextcenter>
+      <ShapeTextcenter> 충무로 </ShapeTextcenter>
       <LittleRoundedShapeRight />
 
       <RoundedShapeRight>
-        <ShapeTextright>약수</ShapeTextright>
+        <ShapeTextright> 동대입구 </ShapeTextright>
       </RoundedShapeRight>
     </ShapeContainer>
   );
 };
 
-export default DonggukUniv;
+export default ChungMuRo3;
