@@ -58,7 +58,7 @@ const LoadingText = styled.div`
   text-align: center;
 `;
 
-const SubwayInfo = ({ line }) => {
+const SubwayInfo = ({ line, lineId }) => {
   const [realTimeInfo, setRealTimeInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   //`http://swopenapi.seoul.go.kr/api/subway/47666556736c797336314d79756545/json/realtimeStationArrival/1/5/${line}`
@@ -66,14 +66,14 @@ const SubwayInfo = ({ line }) => {
     const fetchRealTimeInfo = async () => {
       try {
         const response = await fetch(
-          `http://swopenapi.seoul.go.kr/api/subway/47666556736c797336314d79756545/json/realtimeStationArrival/1/5/${line}`
+          `http://swopenapi.seoul.go.kr/api/subway/4d497461524b7a6f313032516a484b51/json/realtimeStationArrival/1/5/${line}`
         );
         const data = await response.json();
 
         console.log(data);
-
+        data.realtimeArrivalList.sort((a,b)=>a.barvlDt - b.barvlDt);
         setRealTimeInfo(data.realtimeArrivalList);
-        //setLoading(false);
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
@@ -88,15 +88,19 @@ const SubwayInfo = ({ line }) => {
 
   return (
     <SubwayInfoContainer>
-      <LineTitle>{line}역</LineTitle>
+            <LineTitle>{line}역 {parseInt(lineId,10)-1000}호선</LineTitle>
       <InfoList>
-        {realTimeInfo.map((info) => (
-          <InfoItem>
-            <StationName>{info.subwayId}</StationName>
-            <StationName>{info.trainLineNm}</StationName>
-            <ArrivalTime>{info.arvlMsg2}</ArrivalTime>
-          </InfoItem>
-        ))}
+      {realTimeInfo.map((info) => {
+          if(info.subwayId===lineId){
+            return(
+              <InfoItem key={info.btrainNo}>
+                <StationName>{parseInt(info.subwayId,10)-1000}호선</StationName>
+                <StationName>{info.trainLineNm}</StationName>
+                <ArrivalTime>{info.arvlMsg2}</ArrivalTime>
+              </InfoItem>
+              )
+          }
+      })}
       </InfoList>
     </SubwayInfoContainer>
   );
@@ -111,14 +115,14 @@ const Subway = () => {
         <Line4 />
         <Line3 />
         <Refresh />
-        <SubwayInfo line="동대입구" />
         <DonggukUniv />
+        <SubwayInfo line="동대입구" lineId="1003" />
         <br />
-        <SubwayInfo line="충무로 3" />
         <ChungMuRo3 />
+        <SubwayInfo line="충무로" lineId="1003" />
         <br />
-        <SubwayInfo line="충무로 4" />
         <ChungMuRo4 />
+        <SubwayInfo line="충무로" lineId="1004" />
       </div>
     </Container>
   );
