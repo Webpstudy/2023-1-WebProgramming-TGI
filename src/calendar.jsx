@@ -40,6 +40,7 @@ function Calendar() {
 
   function handleEventDrop(eventInfo) {
     const updatedEvents = events.map((event) => {
+      console.log("ok");
       if (event.id === eventInfo.event.id) {
         return {
           ...event,
@@ -47,11 +48,42 @@ function Calendar() {
           end: eventInfo.event.endStr || null,
         };
       }
+
       return event;
     });
 
     setEvents(updatedEvents);
     localStorage.setItem("events", JSON.stringify(updatedEvents));
+  }
+  function handleReceive(eventInfo) {
+    
+    const { event } = eventInfo;
+    const { id, title, start, end} = event;
+    // 추출된 정보를 배열에 추가 또는 원하는 작업 수행
+    const eventData = { id, title, start, end};
+
+    if(eventData.id==="1"){
+      Object.assign(eventData,{backgroundColor:"#f1a8bc",borderColor: "#f1a8bc",allDay: true});
+    }
+    else if(eventData.id==="2"){
+      Object.assign(eventData,{backgroundColor:"#eee58a",borderColor: "#eee58a",allDay: true});
+    }
+    else if(eventData.id==="3"){
+      Object.assign(eventData,{backgroundColor:"#c4ecb0",borderColor: "#c4ecb0",allDay: true});
+    }
+    else if(eventData.id==="4"){
+      Object.assign(eventData,{backgroundColor:"#addbd8",borderColor: "#addbd8",allDay: true});
+    }
+    else{
+      Object.assign(eventData,{backgroundColor:"black",borderColor: "black",allDay: true});
+    }
+
+    eventData.id= createEventId2();
+    eventData.end= eventData.start;  
+   
+    const updatedEvents = [...events,eventData];
+    setEvents(updatedEvents);
+    localStorage.setItem("events",JSON.stringify(updatedEvents));
   }
 
   const handleDateSelect = (selectInfo) => {
@@ -71,7 +103,7 @@ function Calendar() {
         borderColor: "#c9c8cd",
       });
       const newEvent = {
-        id: uuidv4(),
+        id: createEventId2(),
         title,
         start: selectInfo.startStr,
         end: selectInfo.endStr,
@@ -160,10 +192,10 @@ function Calendar() {
   const [state, setState] = useState({
     weekendsVisible: true,
     externalEvents: [
-      { title: "이벤트1", color: "#f1a8bc", id: 34432, custom: "부가설명" },
-      { title: "이벤트2", color: "#eee58a", id: 323232 },
-      { title: "이벤트3", color: "#c4ecb0", id: 1111 },
-      { title: "이벤트4", color: "#addbd8", id: 432432 },
+      { title: "시험기간", color: "#f1a8bc", id: "1" },
+      { title: "과제마감일", color: "#eee58a", id: "2" },
+      { title: "휴강일", color: "#c4ecb0", id: "3" },
+      { title: "기타", color: "#addbd8", id: "4" },
     ],
   });
 
@@ -192,6 +224,7 @@ function Calendar() {
     };
   }, []);
 
+
   // add external events
   const addEvent = () => {
     let title = prompt("추가된 이벤트의 제목을 입력하세요");
@@ -205,6 +238,9 @@ function Calendar() {
         end: "2020-12-31",
         custom: custom,
       };
+
+
+
       setState((prevState) => {
         const updatedExternalEvents = [...prevState.externalEvents, newEvent];
         localStorage.setItem(
@@ -304,6 +340,7 @@ function Calendar() {
             weekends={weekendsVisible}
             select={handleDateSelect}
             eventDrop={handleEventDrop}
+            eventReceive={handleReceive}
             eventContent={renderEventContent} // custom render function
             eventClick={handleEventClick}
             eventsSet={handleEvents} // called after events are initialized/added/changed/removed
