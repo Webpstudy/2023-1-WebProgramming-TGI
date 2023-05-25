@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ShapeContainer = styled.div`
   display: flex;
@@ -78,14 +78,14 @@ const ChungMuRo4 = () => {
   return (
     <ShapeContainer>
       <RoundedShape>
-        <ShapeTextleft> 동대문역사문화공원 </ShapeTextleft>
+        <ShapeTextleft> &lt; 동대문역사문화공원 </ShapeTextleft>
       </RoundedShape>
       <LittleRoundedShape />
       <ShapeTextcenter> 충무로 </ShapeTextcenter>
       <LittleRoundedShapeRight />
 
       <RoundedShapeRight>
-        <ShapeTextright> 명동 </ShapeTextright>
+        <ShapeTextright> 명동 &gt;</ShapeTextright>
       </RoundedShapeRight>
     </ShapeContainer>
   );
