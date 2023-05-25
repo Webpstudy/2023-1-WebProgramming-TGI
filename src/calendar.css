@@ -1,15 +1,68 @@
-.cal {
-  position: absolute;
-}
-.calendar-app{
-  display:flex;
+/* calendar.css */
+
+.calendar-app {
+  display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
-.calendar-app-main{
-  width:80vw;
-  height:80vh;
+
+.calendar-app-main {
+  width: 95vw;
+  height: 85vh;
+  display: flex;
+  position :absolute;
+  top: 20vh;
+  left: 1vw;
 }
+
+#external-events {
+  width: 200px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 20px;
+  overflow-y: auto;
+  margin-left : 40px;
+}
+
+#external-events h4 {
+  font-size: 16px;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+#external-events .fc-event {
+  margin-bottom: 10px;
+  cursor: move;
+  background-color: #e2e2e2;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+#external-events .fc-event:hover {
+  background-color: #d0d0d0;
+}
+
+#calendar-main {
+  flex: 1;
+  overflow-y: auto;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 일요일 날짜: 빨간색 */
+.fc-day-sun a {
+  color: red;
+}
+
+/* 토요일 날짜: 파란색 */
+.fc-day-sat a {
+  color: blue;
+}
+
 #eventTitle{
-  text-align: center;
-}
+  text-align: center;}
