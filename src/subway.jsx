@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
-import DonggukUniv from "./DonggukUniv";
-import styled from "styled-components";
-import ChungMuRo4 from "./Chungmuro4";
-import ChungMuRo3 from "./Chungmuro3";
-import Refresh from "./refresh";
-import Line3 from "./line3Btn";
-import Line4 from "./line4Btn";
+import React, { useEffect, useState } from 'react';
+import DonggukUniv from './DonggukUniv';
+import styled from 'styled-components';
+import ChungMuRo4 from './Chungmuro4';
+import ChungMuRo3 from './Chungmuro3';
+import Refresh from './refresh';
+import Line3 from './line3Btn';
+import Line4 from './line4Btn';
 
 const Container = styled.div`
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
-  padding-top: 70vh;
   border: 1px solid #ccc;
-  margin-left: 2vw;
+  margin-left: 3vw;
+  position: absolute;
+  margin-top: 17vh;
+  top: 5px;
 `;
 
 const Title = styled.h1`
