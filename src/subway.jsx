@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import DonggukUniv from './DonggukUniv';
-import styled from 'styled-components';
-import ChungMuRo4 from './Chungmuro4';
-import ChungMuRo3 from './Chungmuro3';
-import Refresh from './refresh';
-import Line3 from './line3Btn';
-import Line4 from './line4Btn';
+import React, { useEffect, useState } from "react";
+import DonggukUniv from "./DonggukUniv";
+import styled from "styled-components";
+import ChungMuRo4 from "./Chungmuro4";
+import ChungMuRo3 from "./Chungmuro3";
+import Refresh from "./refresh";
+import Line3 from "./line3Btn";
+import Line4 from "./line4Btn";
 
 const Container = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 16px;
+  padding-top: 70vh;
   border: 1px solid #ccc;
   margin-left: 2vw;
 `;
@@ -58,7 +58,7 @@ const LoadingText = styled.div`
   text-align: center;
 `;
 
-const SubwayInfo = ({ line, lineId }) => {
+const SubwayInfo = ({ line, lineId, direction }) => {
   const [realTimeInfo, setRealTimeInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   //`http://swopenapi.seoul.go.kr/api/subway/47666556736c797336314d79756545/json/realtimeStationArrival/1/5/${line}`
@@ -71,7 +71,7 @@ const SubwayInfo = ({ line, lineId }) => {
         const data = await response.json();
 
         console.log(data);
-        data.realtimeArrivalList.sort((a,b)=>a.barvlDt - b.barvlDt);
+        data.realtimeArrivalList.sort((a, b) => a.barvlDt - b.barvlDt);
         setRealTimeInfo(data.realtimeArrivalList);
         setLoading(false);
       } catch (error) {
@@ -88,19 +88,23 @@ const SubwayInfo = ({ line, lineId }) => {
 
   return (
     <SubwayInfoContainer>
-            <LineTitle>{line}역 {parseInt(lineId,10)-1000}호선</LineTitle>
+      <LineTitle>
+        {line}역 {parseInt(lineId, 10) - 1000}호선
+      </LineTitle>
       <InfoList>
-      {realTimeInfo.map((info) => {
-          if(info.subwayId===lineId){
-            return(
+        {realTimeInfo.map((info) => {
+          if (info.subwayId === lineId && info.updnLine === direction) {
+            return (
               <InfoItem key={info.btrainNo}>
-                <StationName>{parseInt(info.subwayId,10)-1000}호선</StationName>
+                <StationName>
+                  {parseInt(info.subwayId, 10) - 1000}호선
+                </StationName>
                 <StationName>{info.trainLineNm}</StationName>
                 <ArrivalTime>{info.arvlMsg2}</ArrivalTime>
               </InfoItem>
-              )
+            );
           }
-      })}
+        })}
       </InfoList>
     </SubwayInfoContainer>
   );
@@ -116,13 +120,16 @@ const Subway = () => {
         <Line3 />
         <Refresh />
         <DonggukUniv />
-        <SubwayInfo line="동대입구" lineId="1003" />
+        <SubwayInfo line="동대입구" lineId="1003" direction="상행" />
+        <SubwayInfo line="동대입구" lineId="1003" direction="하행" />
         <br />
         <ChungMuRo3 />
-        <SubwayInfo line="충무로" lineId="1003" />
+        <SubwayInfo line="충무로" lineId="1003" direction="상행" />
+        <SubwayInfo line="충무로" lineId="1003" direction="하행" />
         <br />
         <ChungMuRo4 />
-        <SubwayInfo line="충무로" lineId="1004" />
+        <SubwayInfo line="충무로" lineId="1004" direction="상행" />
+        <SubwayInfo line="충무로" lineId="1004" direction="하행" />
       </div>
     </Container>
   );
