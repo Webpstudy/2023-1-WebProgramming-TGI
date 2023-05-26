@@ -6,12 +6,13 @@ import ChungMuRo3 from './Chungmuro3';
 import Refresh from './refresh';
 import Line3 from './line3Btn';
 import Line4 from './line4Btn';
+import './subway.css';
 
 const Container = styled.div`
-  width: 95%;
+  width: 90vw;
   margin: 0 auto;
   border: 1px solid #ccc;
-  margin-left: 3vw;
+  margin-left: 5vw;
   position: absolute;
   margin-top: 17vh;
   top: 5px;
@@ -24,10 +25,12 @@ const Title = styled.h1`
 `;
 
 const SubwayInfoContainer = styled.div`
-  background-color: #f0f0f0;
   padding: 16px;
   margin-bottom: 16px;
-  border-radius: 4px;
+  margin-left: 2vw;
+  width: 39vw;
+  background-color: ${(props) => props.styledprops?.bgColor || '#fff'};
+  border-left: ${(props) => props.styledprops?.borderLeft || 'red'};
 `;
 
 const LineTitle = styled.h2`
@@ -42,8 +45,11 @@ const InfoList = styled.ul`
 
 const InfoItem = styled.li`
   display: flex;
+  width: 40vw;
   align-items: center;
   margin-bottom: 4px;
+  color: ${(props) =>
+    props.styledprops ? props.styledprops.color : 'inherit'};
 `;
 
 const StationName = styled.span`
@@ -60,7 +66,7 @@ const LoadingText = styled.div`
   text-align: center;
 `;
 
-const SubwayInfo = ({ line, lineId, direction }) => {
+const SubwayInfo = ({ line, lineId, direction, styledprops }) => {
   const [realTimeInfo, setRealTimeInfo] = useState([]);
   const [loading, setLoading] = useState(true);
   //`http://swopenapi.seoul.go.kr/api/subway/47666556736c797336314d79756545/json/realtimeStationArrival/1/5/${line}`
@@ -68,7 +74,7 @@ const SubwayInfo = ({ line, lineId, direction }) => {
     const fetchRealTimeInfo = async () => {
       try {
         const response = await fetch(
-          `http://swopenapi.seoul.go.kr/api/subway/4d497461524b7a6f313032516a484b51/json/realtimeStationArrival/1/5/${line}`
+          `http://swopenapi.seoul.go.kr/api/subway/7474424f457079753736684b71744c/json/realtimeStationArrival/1/5/${line}`
         );
         const data = await response.json();
 
@@ -76,9 +82,7 @@ const SubwayInfo = ({ line, lineId, direction }) => {
         data.realtimeArrivalList.sort((a, b) => a.barvlDt - b.barvlDt);
         setRealTimeInfo(data.realtimeArrivalList);
         setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
+      } catch (error) {}
     };
 
     fetchRealTimeInfo();
@@ -89,7 +93,7 @@ const SubwayInfo = ({ line, lineId, direction }) => {
   }
 
   return (
-    <SubwayInfoContainer>
+    <SubwayInfoContainer styledprops={styledprops}>
       <LineTitle>
         {line}역 {parseInt(lineId, 10) - 1000}호선
       </LineTitle>
@@ -97,7 +101,7 @@ const SubwayInfo = ({ line, lineId, direction }) => {
         {realTimeInfo.map((info) => {
           if (info.subwayId === lineId && info.updnLine === direction) {
             return (
-              <InfoItem key={info.btrainNo}>
+              <InfoItem styledprops={styledprops} key={info.btrainNo}>
                 <StationName>
                   {parseInt(info.subwayId, 10) - 1000}호선
                 </StationName>
@@ -122,16 +126,44 @@ const Subway = () => {
         <Line3 />
         <Refresh />
         <DonggukUniv />
-        <SubwayInfo line="동대입구" lineId="1003" direction="상행" />
-        <SubwayInfo line="동대입구" lineId="1003" direction="하행" />
+        <div className="abc">
+          <SubwayInfo line="동대입구" lineId="1003" direction="상행" />
+          <SubwayInfo
+            line="동대입구"
+            lineId="1003"
+            direction="하행"
+            styledprops={{
+              borderLeft: '1px dotted grey',
+            }}
+          />
+        </div>
+
         <br />
         <ChungMuRo3 />
-        <SubwayInfo line="충무로" lineId="1003" direction="상행" />
-        <SubwayInfo line="충무로" lineId="1003" direction="하행" />
+        <div className="abc">
+          <SubwayInfo line="충무로" lineId="1003" direction="상행" />
+          <SubwayInfo
+            line="충무로"
+            lineId="1003"
+            direction="하행"
+            styledprops={{
+              borderLeft: '1px dotted grey',
+            }}
+          />
+        </div>
         <br />
         <ChungMuRo4 />
-        <SubwayInfo line="충무로" lineId="1004" direction="상행" />
-        <SubwayInfo line="충무로" lineId="1004" direction="하행" />
+        <div className="abc">
+          <SubwayInfo line="충무로" lineId="1004" direction="상행" />
+          <SubwayInfo
+            line="충무로"
+            lineId="1004"
+            direction="하행"
+            styledprops={{
+              borderLeft: '1px dotted grey',
+            }}
+          />
+        </div>
       </div>
     </Container>
   );
