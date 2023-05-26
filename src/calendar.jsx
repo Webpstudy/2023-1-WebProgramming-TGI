@@ -286,6 +286,24 @@ function Calendar() {
 
   const mergedEvents = [...INITIAL_EVENTS, ...events];
 
+  const handleResize = (eventInfo)=>{
+    const updatedEvents = events.map((event) => {
+      console.log("ok");
+      if (event.id === eventInfo.event.id) {
+        return {
+          ...event,
+          start: eventInfo.event.startStr,
+          end: eventInfo.event.endStr || null,
+        };
+      }
+
+      return event;
+    });
+
+    setEvents(updatedEvents);
+    localStorage.setItem("events", JSON.stringify(updatedEvents));
+  }
+
   return (
     <div className="calendar-app">
       <div className="calendar-app-main">
@@ -352,6 +370,7 @@ function Calendar() {
           */
             events={mergedEvents}
             eventRemove={handleEventRemove}
+            eventResize={handleResize}
           />
         </div>
       </div>
