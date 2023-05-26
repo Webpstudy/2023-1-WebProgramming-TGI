@@ -75,7 +75,7 @@ function Calendar() {
       Object.assign(eventData,{backgroundColor:"#addbd8",borderColor: "#addbd8",allDay: true});
     }
     else{
-      Object.assign(eventData,{backgroundColor:"black",borderColor: "black",allDay: true});
+      Object.assign(eventData,{backgroundColor:"#d6b0eb",borderColor: "#d6b0eb",allDay: true});
     }
 
     eventData.id= createEventId2();
@@ -233,7 +233,7 @@ function Calendar() {
       let newEvent = {
         id: uuidv4(), // 고유한 UUID 생성
         title: title,
-        color: getColorByIndex(state.externalEvents.length), // 외부 이벤트 목록의 길이에 따라 색상 할당
+        color: "#d6b0eb",
         start: "2020-12-31",
         end: "2020-12-31",
         custom: custom,
@@ -277,13 +277,6 @@ function Calendar() {
     localStorage.setItem("events", JSON.stringify(updatedEvents));
   };
   
-  // 외부 이벤트 목록의 인덱스에 따라 색상을 할당하는 함수
-  const getColorByIndex = (index) => {
-    const colors = ["#f1a8bc", "#eee58a", "#c4ecb0", "#addbd8", "#d6b0eb"];
-    const colorIndex = index % colors.length;
-    return colors[colorIndex];
-  };
-
   const mergedEvents = [...INITIAL_EVENTS, ...events];
 
   const handleResize = (eventInfo)=>{
