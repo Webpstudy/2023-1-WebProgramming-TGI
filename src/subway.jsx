@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import DonggukUniv from './DonggukUniv';
-import styled from 'styled-components';
-import ChungMuRo4 from './Chungmuro4';
-import ChungMuRo3 from './Chungmuro3';
-import Refresh from './refresh';
-import Line3 from './line3Btn';
-import Line4 from './line4Btn';
-import './subway.css';
+import React, { useEffect, useState } from "react";
+import DonggukUniv from "./DonggukUniv";
+import styled from "styled-components";
+import ChungMuRo4 from "./Chungmuro4";
+import ChungMuRo3 from "./Chungmuro3";
+import Refresh from "./refresh";
+import Line3 from "./line3Btn";
+import Line4 from "./line4Btn";
+import "./subway.css";
 
 const Container = styled.div`
   width: 90vw;
@@ -29,8 +29,8 @@ const SubwayInfoContainer = styled.div`
   margin-bottom: 16px;
   margin-left: 2vw;
   width: 39vw;
-  background-color: ${(props) => props.styledprops?.bgColor || '#fff'};
-  border-left: ${(props) => props.styledprops?.borderLeft || 'red'};
+  background-color: ${(props) => props.styledprops?.bgColor || "#fff"};
+  border-left: ${(props) => props.styledprops?.borderLeft || "red"};
 `;
 
 const LineTitle = styled.h2`
@@ -49,7 +49,7 @@ const InfoItem = styled.li`
   align-items: center;
   margin-bottom: 4px;
   color: ${(props) =>
-    props.styledprops ? props.styledprops.color : 'inherit'};
+    props.styledprops ? props.styledprops.color : "inherit"};
 `;
 
 const StationName = styled.span`
@@ -74,7 +74,7 @@ const SubwayInfo = ({ line, lineId, direction, styledprops }) => {
     const fetchRealTimeInfo = async () => {
       try {
         const response = await fetch(
-          `http://swopenapi.seoul.go.kr/api/subway/7474424f457079753736684b71744c/json/realtimeStationArrival/1/5/${line}`
+          `http://swopenapi.seoul.go.kr/api/subway/614d6c646e6c79733132357354714d50/json/realtimeStationArrival/1/5/${line}`
         );
         const data = await response.json();
 
@@ -100,6 +100,15 @@ const SubwayInfo = ({ line, lineId, direction, styledprops }) => {
       <InfoList>
         {realTimeInfo.map((info) => {
           if (info.subwayId === lineId && info.updnLine === direction) {
+            if (info.barvlDt <= 60) {
+              styledprops = {
+                color: "red",
+              };
+            } else {
+              styledprops = {
+                color: "black",
+              };
+            }
             return (
               <InfoItem styledprops={styledprops} key={info.btrainNo}>
                 <StationName>
@@ -133,7 +142,7 @@ const Subway = () => {
             lineId="1003"
             direction="하행"
             styledprops={{
-              borderLeft: '1px dotted grey',
+              borderLeft: "1px dotted grey",
             }}
           />
         </div>
@@ -147,7 +156,7 @@ const Subway = () => {
             lineId="1003"
             direction="하행"
             styledprops={{
-              borderLeft: '1px dotted grey',
+              borderLeft: "1px dotted grey",
             }}
           />
         </div>
@@ -160,7 +169,7 @@ const Subway = () => {
             lineId="1004"
             direction="하행"
             styledprops={{
-              borderLeft: '1px dotted grey',
+              borderLeft: "1px dotted grey",
             }}
           />
         </div>
