@@ -13,7 +13,7 @@ const Button = styled.button`
   transition: border-color 0.25s;
   width: 3vh;
   height: 3vh;
-  margin-left: 2vh;
+  margin-left: 5vh;
 `;
 
 const Line4 = () => {
