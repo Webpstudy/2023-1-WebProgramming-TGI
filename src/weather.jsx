@@ -1,6 +1,8 @@
 import './weather.css';
 import React,{useEffect,useState} from 'react';
 import styled from 'styled-components';
+import {WiHumidity,WiThermometer,WiThermometerExterior} from 'react-icons/wi'
+import {LuWind} from 'react-icons/lu'
 
 const Container = styled.div`
   width: 90vw;
@@ -163,10 +165,10 @@ const WeatherInfo = () =>{
         <Temp>{weather.main.temp+"℃"}</Temp>
       </div>
       <div id="subtemp">
-        <p>습도:{weather.main.humidity+"%"}</p>
-        <p>바람:{getWindDirection(weather.wind.deg)+weather.wind.speed+"m/s"}</p>
-        <p>최저기온:{weather.main.temp_min+"℃"}</p>
-        <p>최고기온:{weather.main.temp_max+"℃"}</p>
+        <p><WiHumidity/> 습도:{weather.main.humidity+"%"}</p>
+        <p><LuWind/> 바람:{getWindDirection(weather.wind.deg)+weather.wind.speed+"m/s"}</p>
+        <p><WiThermometerExterior/>최저기온:{weather.main.temp_min+"℃"}</p>
+        <p><WiThermometer/>최고기온:{weather.main.temp_max+"℃"}</p>
       </div>
     </div>
   );
@@ -177,7 +179,7 @@ const WeatherInfo = () =>{
 function Weather() {
   return (
     <Container>
-      <div className="subwayOutLine">
+      <div>
         <Title>서울시 중구 동국대학교 날씨현황</Title>
         <WeatherInfo/>
         <Title>대기현황</Title>
