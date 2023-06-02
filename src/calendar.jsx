@@ -295,6 +295,25 @@ function Calendar() {
     const colorIndex = index % colors.length;
     return colors[colorIndex];
   };
+  
+   const handleResize = (eventInfo)=>{
+    const updatedEvents = events.map((event) => {
+      console.log("ok");
+      if (event.id === eventInfo.event.id) {
+        return {
+          ...event,
+          start: eventInfo.event.startStr,
+          end: eventInfo.event.endStr || null,
+        };
+      }
+
+      return event;
+    });
+
+    setEvents(updatedEvents);
+    localStorage.setItem("events", JSON.stringify(updatedEvents));
+  }
+
 
   const mergedEvents = [...INITIAL_EVENTS, ...events];
 
@@ -364,6 +383,7 @@ function Calendar() {
           */
             events={mergedEvents}
             eventRemove={handleEventRemove}
+            eventResize={handleResize}
           />
         </div>
       </div>
