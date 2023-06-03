@@ -1,37 +1,108 @@
-#main{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.85);
+
+  margin: 1vw 1.5vw;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  height: 45vh;
 }
-#temp{
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
+#temp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
-#subtemp{
-    display:flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    font-size:50px;
+/* 습도, 바람, 최저, 최고 */
+#subtemp {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-size: 1.4vw;
 }
-p{
-    margin:30px;
+
+.minTemp {
+  background-color: #c5d3f1fe;
+  border-radius: 10px;
+  text-align: center;
+  width: 8vw;
+  line-height: 2;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
-#mise{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    margin:50px;
-    font-size:30px;
+
+.maxTemp {
+  background-color: #fefcda;
+  border-radius: 10px;
+  text-align: center;
+  width: 8vw;
+  margin-right: 0;
+  line-height: 2;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
-#misemain{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+
+.wind {
+  background-color: #ebfae8;
+  border-radius: 10px;
+  text-align: center;
+  width: 8vw;
+  line-height: 2;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
-#miseinfo{
-    margin:10px;
+
+.humidity {
+  background-color: #ebf7ff;
+  border-radius: 10px;
+  text-align: center;
+  width: 8vw;
+  margin-left: 0;
+  line-height: 2;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
+}
+
+p {
+  margin: 30px;
+}
+#mise {
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  background-color: rgba(202, 219, 238, 0.5);
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.03);
+}
+
+#misemain {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+#miseinfo {
+  margin: 10px;
+  text-align: center;
+  font-size: 1.6vw;
+}
+
+.weatherTitle {
+  font-size: 2vw;
+  margin-bottom: 3vh;
+  display: block;
+  height: 7vh;
+}
+
+.atStatus {
+  background-color: rgba(255, 255, 255, 0.85);
+  margin-top: 2vh;
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+  border-radius: 10px;
+  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.weather {
+  position: absolute;
 }

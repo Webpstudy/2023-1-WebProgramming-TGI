@@ -7,6 +7,7 @@ import { INITIAL_EVENTS, createEventId2, initialIds } from './event-utils';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { v4 as uuidv4 } from 'uuid';
 import './calendar.css';
+import Frame from './frame';
 
 function Calendar() {
   const [weekendsVisible, setWeekendsVisible] = useState(true);
@@ -295,10 +296,10 @@ function Calendar() {
     const colorIndex = index % colors.length;
     return colors[colorIndex];
   };
-  
-   const handleResize = (eventInfo)=>{
+
+  const handleResize = (eventInfo) => {
     const updatedEvents = events.map((event) => {
-      console.log("ok");
+      console.log('ok');
       if (event.id === eventInfo.event.id) {
         return {
           ...event,
@@ -311,9 +312,8 @@ function Calendar() {
     });
 
     setEvents(updatedEvents);
-    localStorage.setItem("events", JSON.stringify(updatedEvents));
-  }
-
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
 
   const mergedEvents = [...INITIAL_EVENTS, ...events];
 

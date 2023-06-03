@@ -1,33 +1,49 @@
 import './weather.css';
-import React,{useEffect,useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import {WiHumidity,WiThermometer,WiThermometerExterior} from 'react-icons/wi'
-import {LuWind} from 'react-icons/lu'
+import {
+  WiHumidity,
+  WiThermometer,
+  WiThermometerExterior,
+} from 'react-icons/wi';
+import { LuWind } from 'react-icons/lu';
+import Sky from './assets/image/sky.png';
+
+const Image = styled.img`
+  position: absolute;
+  top: 15vh;
+  height: 118vh;
+`;
 
 const Container = styled.div`
-  width: 90vw;
+  width: 60vw;
   margin: 0 auto;
-  border: 1px solid #ccc;
-  margin-left: 5vw;
+  margin-left: 18vw;
   position: absolute;
-  margin-top: 17vh;
-  top: 5px;
-  background-color:#ccc;
+  margin-top: 12vh;
+  top: 5vh;
+  background-color: rgba(232, 235, 240, 0.9);
+  padding-top: 2vh;
+  padding-bottom: 5vh;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 `;
 
 const Title = styled.h1`
-  color: #333;
+  color: #000;
   text-align: center;
-  margin-bottom: 16px;
+  margin-top: 3vh;
+  font-size: 2vw;
 `;
 
 const Temp = styled.div`
   font-weight: bold;
-  font-size: 100px;
+  font-size: 5vw;
 `;
 
 function getAirQualityStatus(value, type) {
-  if (type === 'pm10') { // 미세먼지 (PM10)
+  if (type === 'pm10') {
+    // 미세먼지 (PM10)
     if (value <= 30) {
       return '좋음';
     } else if (value <= 80) {
@@ -37,7 +53,8 @@ function getAirQualityStatus(value, type) {
     } else {
       return '매우 나쁨';
     }
-  } else if (type === 'pm2.5') { // 초미세먼지 (PM2.5)
+  } else if (type === 'pm2.5') {
+    // 초미세먼지 (PM2.5)
     if (value <= 15) {
       return '좋음';
     } else if (value <= 35) {
@@ -47,7 +64,8 @@ function getAirQualityStatus(value, type) {
     } else {
       return '매우 나쁨';
     }
-  } else if (type === 'ozone') { // 오존 (Ozone)
+  } else if (type === 'ozone') {
+    // 오존 (Ozone)
     if (value <= 0.03) {
       return '좋음';
     } else if (value <= 0.09) {
@@ -61,7 +79,6 @@ function getAirQualityStatus(value, type) {
     return '알 수 없음';
   }
 }
-
 
 function getWindDirection(deg) {
   if (deg >= 337.5 || deg < 22.5) {
@@ -84,13 +101,13 @@ function getWindDirection(deg) {
     return '알 수 없음';
   }
 }
-const MiseInfo =()=>{
-  const [mise,setMise] = useState([]);
-  const [loading,setLoading] = useState(true);
+const MiseInfo = () => {
+  const [mise, setMise] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    const fetchMiseInfo = async ()=>{
-      try{
+  useEffect(() => {
+    const fetchMiseInfo = async () => {
+      try {
         const response = await fetch(
           'http://openAPI.seoul.go.kr:8088/464b57726a4b7a6f313037476f544468/json/RealtimeCityAir/1/5/도심권/중구'
         );
@@ -98,15 +115,12 @@ const MiseInfo =()=>{
         console.log(data);
         setMise(data);
         setLoading(false);
-      } catch (error){
-        
-      }
+      } catch (error) {}
     };
 
-    
     fetchMiseInfo();
-  },[]);
-  
+  }, []);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -114,31 +128,36 @@ const MiseInfo =()=>{
   return (
     <div id="misemain">
       <div id="mise">
-        <div id="miseinfo">{mise.RealtimeCityAir.row[0].PM25}</div>
         <div id="miseinfo">초미세먼지(PM2.5)</div>
-        <div id="miseinfo">{getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25,"pm2.5")}</div>
+        <div id="miseinfo">{mise.RealtimeCityAir.row[0].PM25}</div>
+        <div id="miseinfo">
+          {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm2.5')}
+        </div>
       </div>
       <div id="mise">
-        <div id="miseinfo">{mise.RealtimeCityAir.row[0].PM10}</div>
         <div id="miseinfo">미세먼지(PM10)</div>
-        <div id="miseinfo">{getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25,"pm10")}</div>
+        <div id="miseinfo">{mise.RealtimeCityAir.row[0].PM10}</div>
+        <div id="miseinfo">
+          {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm10')}
+        </div>
       </div>
       <div id="mise">
-        <div id="miseinfo">{mise.RealtimeCityAir.row[0].O3}</div>
         <div id="miseinfo">오존(O3)</div>
-        <div id="miseinfo">{getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25,"ozone")}</div>
+        <div id="miseinfo">{mise.RealtimeCityAir.row[0].O3}</div>
+        <div id="miseinfo">
+          {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'ozone')}
+        </div>
       </div>
     </div>
-  )
-
-}
-const WeatherInfo = () =>{
-  const [weather,setWeather] = useState([]);
+  );
+};
+const WeatherInfo = () => {
+  const [weather, setWeather] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    const fetchWeatherInfo = async ()=>{
-      try{
+  useEffect(() => {
+    const fetchWeatherInfo = async () => {
+      try {
         const response = await fetch(
           'http://api.openweathermap.org/data/2.5/weather?q=Seoul&units=metric&appid=afd96d47386b34f8b44d38a35df06d7a'
         );
@@ -146,14 +165,12 @@ const WeatherInfo = () =>{
         console.log(data);
         setWeather(data);
         setLoading(false);
-      } catch (error){
-        
-      }
+      } catch (error) {}
     };
-    
+
     fetchWeatherInfo();
-  },[]);
-  
+  }, []);
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -161,34 +178,55 @@ const WeatherInfo = () =>{
   return (
     <div id="main">
       <div id="temp">
-        <img src={"http://openweathermap.org/img/wn/"+ weather.weather[0].icon+ "@4x.png"}></img>
-        <Temp>{weather.main.temp+"℃"}</Temp>
+        <img
+          src={
+            'http://openweathermap.org/img/wn/' +
+            weather.weather[0].icon +
+            '@4x.png'
+          }
+        ></img>
+        <Temp>{weather.main.temp + '℃'}</Temp>
       </div>
       <div id="subtemp">
-        <p><WiHumidity/> 습도:{weather.main.humidity+"%"}</p>
-        <p><LuWind/> 바람:{getWindDirection(weather.wind.deg)+weather.wind.speed+"m/s"}</p>
-        <p><WiThermometerExterior/>최저기온:{weather.main.temp_min+"℃"}</p>
-        <p><WiThermometer/>최고기온:{weather.main.temp_max+"℃"}</p>
+        <p className="humidity">
+          <WiHumidity /> 습도 <br /> {weather.main.humidity + '%'}
+        </p>
+        <p className="wind">
+          <LuWind /> 바람 <br />
+          {getWindDirection(weather.wind.deg) + weather.wind.speed + 'm/s'}
+        </p>
+        <p className="minTemp">
+          <WiThermometerExterior />
+          최저기온 <br /> {weather.main.temp_min + '℃'}
+        </p>
+        <p className="maxTemp">
+          <WiThermometer />
+          최고기온 <br /> {weather.main.temp_max + '℃'}
+        </p>
       </div>
     </div>
   );
-
-}
-
+};
 
 function Weather() {
   return (
-    <Container>
-      <div>
-        <Title>서울시 중구 동국대학교 날씨현황</Title>
-        <WeatherInfo/>
-        <Title>대기현황</Title>
-        <MiseInfo/>
-      </div>
-    </Container>
-    
+    <div className="weather">
+      <Image src={Sky} />
+
+      <Container>
+        <div>
+          <Title>
+            <p1 className="weatherTitle">서울시 중구 동국대학교 날씨현황</p1>
+          </Title>
+          <WeatherInfo />
+          <div className="atStatus">
+            <Title>대기현황</Title>
+            <MiseInfo />
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 }
-
 
 export default Weather;

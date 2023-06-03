@@ -29,7 +29,7 @@ const SubwayInfoContainer = styled.div`
   margin-bottom: 16px;
   margin-left: 2vw;
   width: 39vw;
-  background-color: ${(props) => props.styledprops?.bgColor || '#fff'};
+  background-color: ${(props) => props.styledprops?.bgColor || '#fafbfc'};
   border-left: ${(props) => props.styledprops?.borderLeft || 'red'};
 `;
 
