@@ -2,18 +2,15 @@
 #root {
 }
 
-html,
-body {
+.Main {
   margin: 0;
   padding: 0;
   font-size: 1vh;
   font-weight: 400;
   line-height: 1.4;
   font-family: 'Roboto', sans-serif;
-  background-color: #fff;
   color: #000;
   width: 100%;
-  height: 150vh;
 }
 
 .btn1 {
@@ -177,7 +174,7 @@ header .btnOutline {
   color: #706e68;
   background-color: #222;
   position: absolute;
-  bottom: -60vh;
+  bottom: -50vh;
   display: flex;
   left: 0;
   z-index: 4;

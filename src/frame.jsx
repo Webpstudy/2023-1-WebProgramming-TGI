@@ -12,7 +12,7 @@ function Frame() {
     const visible = document.querySelector('.project-menu');
     const isDisplayed = visible.style.display !== 'none';
 
-    gsap.to('.calendar-app, .subwayOutLine', 0.4, {
+    gsap.to('.calendar-app, .subwayOutLine, .weather', 0.4, {
       opacity: isDisplayed ? 1 : 0.2,
     });
 
@@ -26,7 +26,7 @@ function Frame() {
     const invisible = document.querySelector('.project-menu');
     const isInvisible = invisible.style.display === 'none';
 
-    gsap.to('.calendar-app, .subwayOutLine', 0.4, {
+    gsap.to('.calendar-app, .subwayOutLine, .weather', 0.4, {
       opacity: isInvisible ? 0.2 : 1,
     });
 
