@@ -8,6 +8,7 @@ import {
 } from 'react-icons/wi';
 import { LuWind } from 'react-icons/lu';
 import Sky from './assets/image/sky.png';
+import DonutChart from './chart';
 
 const Image = styled.img`
   position: absolute;
@@ -129,21 +130,21 @@ const MiseInfo = () => {
     <div id="misemain">
       <div id="mise">
         <div id="miseinfo">초미세먼지(PM2.5)</div>
-        <div id="miseinfo">{mise.RealtimeCityAir.row[0].PM25}</div>
+        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm2.5')} text={mise.RealtimeCityAir.row[0].PM25+"㎍/㎥"}/></div>
         <div id="miseinfo">
           {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm2.5')}
         </div>
       </div>
       <div id="mise">
         <div id="miseinfo">미세먼지(PM10)</div>
-        <div id="miseinfo">{mise.RealtimeCityAir.row[0].PM10}</div>
+        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm10')} text={mise.RealtimeCityAir.row[0].PM10+"㎍/㎥"}/></div>
         <div id="miseinfo">
           {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm10')}
         </div>
       </div>
       <div id="mise">
         <div id="miseinfo">오존(O3)</div>
-        <div id="miseinfo">{mise.RealtimeCityAir.row[0].O3}</div>
+        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'ozone')} text={mise.RealtimeCityAir.row[0].O3+"ppm"}/></div>
         <div id="miseinfo">
           {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'ozone')}
         </div>
