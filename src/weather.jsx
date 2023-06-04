@@ -137,16 +137,16 @@ const MiseInfo = () => {
       </div>
       <div id="mise">
         <div id="miseinfo">미세먼지(PM10)</div>
-        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm10')} text={mise.RealtimeCityAir.row[0].PM10+"㎍/㎥"}/></div>
+        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].PM10, 'pm10')} text={mise.RealtimeCityAir.row[0].PM10+"㎍/㎥"}/></div>
         <div id="miseinfo">
-          {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'pm10')}
+          {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM10, 'pm10')}
         </div>
       </div>
       <div id="mise">
         <div id="miseinfo">오존(O3)</div>
-        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'ozone')} text={mise.RealtimeCityAir.row[0].O3+"ppm"}/></div>
+        <div id="miseinfo"><DonutChart status={getAirQualityStatus(mise.RealtimeCityAir.row[0].O3, 'ozone')} text={mise.RealtimeCityAir.row[0].O3+"ppm"}/></div>
         <div id="miseinfo">
-          {getAirQualityStatus(mise.RealtimeCityAir.row[0].PM25, 'ozone')}
+          {getAirQualityStatus(mise.RealtimeCityAir.row[0].O3, 'ozone')}
         </div>
       </div>
     </div>
