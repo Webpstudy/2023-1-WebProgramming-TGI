@@ -1,68 +1,132 @@
-import React, { useState, useEffect } from "react";
-import "../../styles/calculator.css";
+import React, { useState, useEffect, useReducer } from 'react';
+import '../../styles/calculator.css';
 
 function Calculator() {
-  const [subject, setSubject] = useState("");
-  const [credit, setCredit] = useState(0);
-  const [grade, setGrade] = useState("");
-  const [isMajor, setIsMajor] = useState(false);
-  const [overallGPA, setOverallGPA] = useState(0);
-  const [majorGPA, setMajorGPA] = useState(0);
-  const [grades, setGrades] = useState(() => {
-    const storedGrades = localStorage.getItem("grades");
-    return storedGrades ? JSON.parse(storedGrades) : [];
-  });
+  // Reducer 부분
+  const initialState = {
+    subject: '',
+    credit: 0,
+    grade: '',
+    isMajor: false,
+    overallGPA: 0,
+    majorGPA: 0,
+    grades: (() => {
+      try {
+        const storedGrades = localStorage.getItem('grades');
+        return storedGrades ? JSON.parse(storedGrades) : [];
+      } catch (e) {
+        console.error(e);
+        return [];
+      }
+    })(),
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  function reducer(state, action) {
+    switch (action.type) {
+      case 'setSubject':
+        return { ...state, subject: action.payload };
+      case 'setCredit':
+        return { ...state, credit: action.payload };
+      case 'setGrade':
+        return { ...state, grade: action.payload };
+      case 'setIsMajor':
+        return { ...state, isMajor: action.payload };
+      case 'setOverallGPA':
+        return { ...state, overallGPA: action.payload };
+      case 'setMajorGPA':
+        return { ...state, majorGPA: action.payload };
+      case 'setGrades':
+        return { ...state, grades: action.payload };
+      default:
+        throw new Error();
+    }
+  }
+
+  const subInputChange = (e) => {
+    dispatch({ type: 'setSubject', payload: e.target.value });
+  };
+
+  const creInputChange = (e) => {
+    dispatch({ type: 'setCredit', payload: e.target.value });
+  };
+
+  const gradeInputChange = (e) => {
+    dispatch({ type: 'setGrade', payload: e.target.value });
+  };
+
+  const isMajorInputChange = (e) => {
+    dispatch({ type: 'setIsMajor', payload: e.target.checked });
+  };
+
+  const setOverallGPA = (value) => {
+    dispatch({ type: 'setOverallGPA', payload: value.toFixed(2) });
+  };
+
+  const setMajorGPA = (value) => {
+    dispatch({ type: 'setMajorGPA', payload: value.toFixed(2) });
+  };
+
+  // 하단 부분은 따로 체크하지 않았습니다.
+
   const deleteGrade = (index) => {
-    const updatedGrades = [...grades];
+    const updatedGrades = [...state.grades];
     updatedGrades.splice(index, 1);
-    setGrades(updatedGrades);
-    localStorage.setItem("grades", JSON.stringify(updatedGrades));
+    dispatch({ type: 'setGrades', payload: updatedGrades });
+    localStorage.setItem('grades', JSON.stringify(updatedGrades));
   };
 
   useEffect(() => {
-    const storedGrades = localStorage.getItem("grades");
+    const storedGrades = localStorage.getItem('grades');
     if (storedGrades) {
-      setGrades(JSON.parse(storedGrades));
+      dispatch({ type: 'setGrades', payload: JSON.parse(storedGrades) });
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("grades", JSON.stringify(grades));
-  }, [grades]);
+    localStorage.setItem('grades', JSON.stringify(state.grades));
+  }, [state.grades]);
 
   const addGrade = () => {
-    if (subject !== "" && credit > 0 && grade !== "") {
-      const newGrade = { subject, credit, grade, isMajor };
-      const newGrades = [...grades, newGrade];
-      setGrades(newGrades);
-      localStorage.setItem("grades", JSON.stringify(newGrades));
+    if (state.subject !== '' && state.credit > 0 && state.grade !== '') {
+      const newGrade = {
+        subject: state.subject,
+        credit: state.credit,
+        grade: state.grade,
+        isMajor: state.isMajor,
+      };
+      const newGrades = [...state.grades, newGrade];
+      dispatch({ type: 'setGrades', payload: newGrades });
+      localStorage.setItem('grades', JSON.stringify(newGrades));
     }
   };
 
   const calculateOverallGPA = () => {
     let totalQualityPoints = 0;
     let totalCredits = 0;
-    grades.forEach((grade) => {
+    state.grades.forEach((grade) => {
       const gradePoint = calculateGradePoint(grade.grade);
       totalQualityPoints += gradePoint;
       totalCredits += 1; // 과목의 개수를 1씩 증가시킴
     });
-    const gpa = totalQualityPoints / totalCredits;
-    setOverallGPA(gpa.toFixed(2));
+    const gpa = totalCredits === 0 ? 0 : totalQualityPoints / totalCredits;
+    setOverallGPA(gpa);
   };
 
   const calculateMajorGPA = () => {
     let totalQualityPoints = 0;
     let majorTotalCredits = 0;
-    grades.forEach((grade) => {
+    state.grades.forEach((grade) => {
       if (grade.isMajor) {
         const gradePoint = calculateGradePoint(grade.grade);
         totalQualityPoints += gradePoint;
         majorTotalCredits += 1; // 전공 과목의 개수를 1씩 증가시킴
       }
     });
-    const gpa = totalQualityPoints / majorTotalCredits;
-    setMajorGPA(gpa.toFixed(2));
+    const gpa =
+      majorTotalCredits === 0 ? 0 : totalQualityPoints / majorTotalCredits;
+    setMajorGPA(gpa);
   };
 
   const calculateGradePoint = (grade) => {
@@ -70,23 +134,23 @@ function Calculator() {
     // 예시: A+ -> 4.5, A -> 4.0, ...
     // 필요에 따라 성적과 학점 간의 매핑을 수정하세요.
     switch (grade) {
-      case "A+":
+      case 'A+':
         return 4.5;
-      case "A":
+      case 'A':
         return 4.0;
-      case "B+":
+      case 'B+':
         return 3.5;
-      case "B":
+      case 'B':
         return 3.0;
-      case "C+":
+      case 'C+':
         return 2.5;
-      case "C":
+      case 'C':
         return 2.0;
-      case "D+":
+      case 'D+':
         return 1.5;
-      case "D":
+      case 'D':
         return 1.0;
-      case "F":
+      case 'F':
         return 0;
       default:
         return 0;
@@ -102,21 +166,21 @@ function Calculator() {
             <label>과목명:</label>
             <input
               type="text"
-              value={subject}
-              onChange={(e) => setSubject(e.target.value)}
+              value={state.subject}
+              onChange={subInputChange}
             />
           </div>
           <div className="box">
             <label>학점:</label>
             <input
               type="number"
-              value={credit}
-              onChange={(e) => setCredit(e.target.value)}
+              value={state.credit}
+              onChange={creInputChange}
             />
           </div>
           <div className="box">
             <label>성적:</label>
-            <select value={grade} onChange={(e) => setGrade(e.target.value)}>
+            <select value={state.grade} onChange={gradeInputChange}>
               <option value="">성적 선택</option>
               <option value="A+">A+</option>
               <option value="A">A</option>
@@ -133,8 +197,8 @@ function Calculator() {
             <label>전공:</label>
             <input
               type="checkbox"
-              checked={isMajor}
-              onChange={(e) => setIsMajor(e.target.checked)}
+              checked={state.isMajor}
+              onChange={isMajorInputChange}
             />
           </div>
           <button className="cal_btn" onClick={addGrade}>
@@ -153,17 +217,17 @@ function Calculator() {
                 </tr>
               </thead>
               <tbody>
-                {grades.map((grade, index) => (
+                {state.grades.map((grade, index) => (
                   <tr key={index}>
                     <td>{grade.subject}</td>
                     <td>{grade.credit}</td>
                     <td>{grade.grade}</td>
-                    <td>{grade.isMajor ? "전공" : "비전공"}</td>
+                    <td>{grade.isMajor ? '전공' : '비전공'}</td>
                     <td
                       style={{
-                        border: "none",
-                        backgroundColor: "transparent",
-                        width: "40px",
+                        border: 'none',
+                        backgroundColor: 'transparent',
+                        width: '40px',
                       }}
                     >
                       <button
@@ -180,22 +244,22 @@ function Calculator() {
           </div>
         </div>
         <div className="thirdPart">
-          <div style={{marginTop:"10px"}}>
+          <div style={{ marginTop: '10px' }}>
             <button className="cal_btn" onClick={calculateOverallGPA}>
               전체 평점 계산
             </button>
             <div className="result">
               <label>총평점:</label>
-              <input type="number" value={overallGPA} readOnly />
+              <input type="number" value={state.overallGPA} readOnly />
             </div>
           </div>
-          <div style={{marginTop:"60px"}}>
+          <div style={{ marginTop: '60px' }}>
             <button className="cal_btn" onClick={calculateMajorGPA}>
               전공 평점 계산
             </button>
             <div className="result">
               <label>전공평점:</label>
-              <input type="number" value={majorGPA} readOnly />
+              <input type="number" value={state.majorGPA} readOnly />
             </div>
           </div>
         </div>
