@@ -1,4 +1,4 @@
-import './weather.css';
+import '../../styles/weather.css';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import {
@@ -7,7 +7,7 @@ import {
   WiThermometerExterior,
 } from 'react-icons/wi';
 import { LuWind } from 'react-icons/lu';
-import Sky from './assets/image/sky.png';
+import Sky from '../../assets/image/sky.png';
 import DonutChart from './chart';
 
 const Image = styled.img`

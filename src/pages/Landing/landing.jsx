@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
-import './landing.css';
-import donggukImg from './assets/image/donggukImg.png';
+import '../../styles/landing.css';
+import donggukImg from '../../assets/image/donggukImg.png';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Frame from './frame';
-import Report from './assets/report/TGI.pdf';
+import Frame from '../../components/Frame/frame';
+import Report from '../../assets/report/TGI.pdf';
 
 const Header = styled.div`
   position: fixed;

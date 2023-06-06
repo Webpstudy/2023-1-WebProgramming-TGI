@@ -6,8 +6,8 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import { INITIAL_EVENTS, createEventId2, initialIds } from './event-utils';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { v4 as uuidv4 } from 'uuid';
-import './calendar.css';
-import Frame from './frame';
+import '../../styles/calendar.css';
+import Frame from '../../components/Frame/frame';
 
 function Calendar() {
   const [weekendsVisible, setWeekendsVisible] = useState(true);

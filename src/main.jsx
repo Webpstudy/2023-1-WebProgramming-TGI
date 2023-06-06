@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import Frame from './frame.jsx';
+import './styles/index.css';
+import Frame from './components/Frame/frame.jsx';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Calendar from './calendar';
-import Subway from './subway';
-import Weather from './weather';
-import Calculator from './calculator';
-import { Landing } from './landing';
-import AboutUs from './aboutUs';
+import Calendar from './pages/Calendar/calendar';
+import Subway from './pages/Subway/subway.jsx';
+import Weather from './pages/Weather/weather.jsx';
+import Calculator from './pages/Calculator/calculator';
+import { Landing } from './pages/Landing/landing';
+import AboutUs from './pages/About/aboutUs';
 
 // 404화면을 어떻게 꾸밀지?
 

@@ -1,11 +1,11 @@
-import './frame.css';
+import '../../styles/frame.css';
 import React, { useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Calendar from './calendar';
-import Subway from './subway';
-import Weather from './weather';
-import Calculator from './calculator';
+import Calendar from '../../pages/Calendar/calendar';
+import Subway from '../../pages/Subway/subway';
+import Weather from '../../pages/Weather/weather';
+import Calculator from '../../pages/Calculator/calculator';
 
 function Frame() {
   const load = () => {
