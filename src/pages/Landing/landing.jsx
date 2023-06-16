@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { styled } from 'styled-components';
-import '../../styles/landing.css';
-import donggukImg from '../../assets/image/donggukImg.png';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Frame from '../../components/Frame/frame';
-import Report from '../../assets/report/TGI.pdf';
+import React, { useEffect, useState } from "react";
+import { styled } from "styled-components";
+import "../../styles/landing.css";
+import donggukImg from "../../assets/image/donggukImg.png";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Frame from "../../components/Frame/frame";
+import Report from "../../assets/report/TGI.pdf";
+import { Outlet } from "react-router-dom";
 
 const Header = styled.div`
   position: fixed;
@@ -37,27 +38,33 @@ const LdIntroduce = styled.div`
 `;
 
 export const Landing = () => {
-  const [headerClass, setHeaderClass] = useState('hdMenu');
+  const [headerClass, setHeaderClass] = useState("hdMenu");
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollPosition > window.innerHeight * 0.08) {
-      setHeaderClass('scrolledHdMenu');
+      setHeaderClass("scrolledHdMenu");
     } else {
-      setHeaderClass('hdMenu');
+      setHeaderClass("hdMenu");
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        backgroundImage: `url(${donggukImg})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
       <Header>
         <div className={headerClass}>
           <div>
@@ -86,12 +93,8 @@ export const Landing = () => {
         </Routes>
       </main>
 
-      <Image src={donggukImg} />
-      <div className="introduceDiv">
-        <LdIntroduce>
-          WebpTGI 팀의 <br />
-          프로젝트 페이지 입니다!
-        </LdIntroduce>
+      <div id="detail" style={{ padding: "40vh" }}>
+        <Outlet />
       </div>
       <footer className="landingFooter">
         <div className="inner">

@@ -1,60 +1,60 @@
-import '../../styles/frame.css';
-import React, { useEffect, useState } from 'react';
-import { gsap } from 'gsap';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import Calendar from '../../pages/Calendar/calendar';
-import Subway from '../../pages/Subway/subway';
-import Weather from '../../pages/Weather/weather';
-import Calculator from '../../pages/Calculator/calculator';
+import "../../styles/frame.css";
+import React, { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Calendar from "../../pages/Calendar/calendar";
+import Subway from "../../pages/Subway/subway";
+import Weather from "../../pages/Weather/weather";
+import Calculator from "../../pages/Calculator/calculator";
 
 function Frame() {
   const load = () => {
-    const visible = document.querySelector('.project-menu');
-    const isDisplayed = visible.style.display !== 'none';
+    const visible = document.querySelector(".project-menu");
+    const isDisplayed = visible.style.display !== "none";
 
-    gsap.to('.calendar-app, .subwayOutLine, .weather', 0.4, {
+    gsap.to(".calendar-app, .subwayOutLine, .weather", 0.4, {
       opacity: isDisplayed ? 1 : 0.2,
     });
 
     gsap.to(visible, 0.4, {
       opacity: isDisplayed ? 0 : 1,
-      display: isDisplayed ? 'none' : 'block',
+      display: isDisplayed ? "none" : "block",
     });
   };
 
   const cl = () => {
-    const invisible = document.querySelector('.project-menu');
-    const isInvisible = invisible.style.display === 'none';
+    const invisible = document.querySelector(".project-menu");
+    const isInvisible = invisible.style.display === "none";
 
-    gsap.to('.calendar-app, .subwayOutLine, .weather', 0.4, {
+    gsap.to(".calendar-app, .subwayOutLine, .weather", 0.4, {
       opacity: isInvisible ? 0.2 : 1,
     });
 
     gsap.to(invisible, 0.4, {
       opacity: isInvisible ? 1 : 0,
-      display: isInvisible ? 'block' : 'none',
+      display: isInvisible ? "block" : "none",
     });
   };
 
-  const [headerClass, setHeaderClass] = useState('');
-  const [headerContent, setHeaderContent] = useState('header__contents');
+  const [headerClass, setHeaderClass] = useState("");
+  const [headerContent, setHeaderContent] = useState("header__contents");
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollPosition > window.innerHeight * 0.08) {
-      setHeaderClass('height');
-      setHeaderContent('hdCharacter');
+      setHeaderClass("height");
+      setHeaderContent("hdCharacter");
     } else {
-      setHeaderClass('');
-      setHeaderContent('header__contents');
+      setHeaderClass("");
+      setHeaderContent("header__contents");
     }
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
