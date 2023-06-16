@@ -97,6 +97,7 @@ header .header__contents .header__contents__detail {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  color: #ffffff;
 }
 
 header .btnOutline {
@@ -149,11 +150,13 @@ header .btnOutline {
 
 .project-menu .menu__contents .menu__ul .menu {
   font-size: 3vh;
+  color: #ffffff;
 }
 
 .project-menu .menu__contents .menu__ul .menu__li {
   padding: 3vh 0;
   font-size: 2vh;
+  color: #ffffff;
 }
 
 .project-menu .menu__contents .menu__ul .menu__li:hover {
