@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NotFound.css';
-import backgroundImage from './assets/image/404page.png'; // 이미지 파일 경로를 적절히 수정하세요
+import '../../styles/NotFound.css';
+import backgroundImage from '../../assets/image/404page.png'; // 이미지 파일 경로를 적절히 수정하세요
 
 const NotFound = () => {
   return (
