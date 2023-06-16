@@ -10,7 +10,7 @@ import Calculator from "./pages/Calculator/calculator";
 import { Landing } from "./pages/Landing/landing";
 import AboutUs from "./pages/About/aboutUs";
 import LandingMAin from "./pages/Landing/landingMain";
-import NotFound from "./NotFound.jsx"; // 404 컴포넌트를 임포트하세요
+import NotFound from "./pages/NotFound/NotFound.jsx"; // 404 컴포넌트를 임포트하세요
 
 // 404화면을 어떻게 꾸밀지?
 
