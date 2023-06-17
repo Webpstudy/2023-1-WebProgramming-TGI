@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import refresh from '../../assets/icons/refresh.png';
 
 const Button = styled.button`
   border-radius: 0;
@@ -22,7 +23,7 @@ const Refresh = () => {
 
   return (
     <Button onClick={handleRefresh}>
-      <Img src="./src/assets/icons/refresh.png" alt="refresh"></Img>
+      <Img src={refresh} alt="refresh"></Img>
     </Button>
   );
 };
