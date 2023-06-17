@@ -5,11 +5,16 @@
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.85);
   color: black;
-
-  margin: 1vw 1.5vw;
+  margin: 10px 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
-  height: 45vh;
+  height: 40vh;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 #temp {
   display: flex;
@@ -22,14 +27,14 @@
   display: flex;
   align-items: center;
   flex-direction: row;
-  font-size: 1.4vw;
+  font-size: 15px;
 }
 
 .minTemp {
   background-color: #c5d3f1fe;
   border-radius: 10px;
   text-align: center;
-  width: 8vw;
+  width: 130px;
   line-height: 2;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
@@ -38,7 +43,7 @@
   background-color: #fefcda;
   border-radius: 10px;
   text-align: center;
-  width: 8vw;
+  width: 130px;
   margin-right: 0;
   line-height: 2;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
@@ -48,7 +53,7 @@
   background-color: #ebfae8;
   border-radius: 10px;
   text-align: center;
-  width: 8vw;
+  width: 130px;
   line-height: 2;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
 }
@@ -57,7 +62,7 @@
   background-color: #ebf7ff;
   border-radius: 10px;
   text-align: center;
-  width: 8vw;
+  width: 130px;
   margin-left: 0;
   line-height: 2;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
@@ -69,7 +74,7 @@ p {
 #mise {
   display: flex;
   flex-direction: column;
-  margin: 25px;
+  margin: 3vh 25px;
   background-color: rgba(202, 219, 238, 0.5);
   border-radius: 10px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.03);
@@ -81,14 +86,14 @@ p {
   justify-content: center;
 }
 #miseinfo {
-  margin: 10px;
+  margin: 1vh 10px;
   text-align: center;
-  font-size: 1.6vw;
+  font-size: 18px;
   color: black;
 }
 
 .weatherTitle {
-  font-size: 2vw;
+  font-size: 25px;
   display: block;
   height: 7vh;
 }
@@ -96,12 +101,11 @@ p {
 .atStatus {
   background-color: rgba(255, 255, 255, 0.85);
   margin-top: 2vh;
-  margin-left: 1.5vw;
-  margin-right: 1.5vw;
+  margin-left: 20px;
+  margin-right: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.1);
-  padding-top: 1vh;
-  padding-bottom: 1vh;
+  padding: 1vh 0;
 }
 
 .weather {

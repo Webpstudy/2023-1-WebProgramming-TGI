@@ -8,9 +8,9 @@
 
 .calendar-app-main {
   width: 95vw;
-  height: 85vh;
+  height: 95vh;
   display: flex;
-  position :absolute;
+  position: absolute;
   top: 20vh;
   left: 1vw;
 }
@@ -23,7 +23,7 @@
   border-radius: 4px;
   margin-right: 20px;
   overflow-y: auto;
-  margin-left : 40px;
+  margin-left: 40px;
 }
 
 #external-events h4 {
@@ -64,5 +64,6 @@
   color: blue;
 }
 
-#eventTitle{
-  text-align: center;}
+#eventTitle {
+  text-align: center;
+}

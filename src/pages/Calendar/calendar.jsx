@@ -7,7 +7,6 @@ import { INITIAL_EVENTS, createEventId2, initialIds } from './event-utils';
 import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import { v4 as uuidv4 } from 'uuid';
 import '../../styles/calendar.css';
-import Frame from '../../components/Frame/frame';
 
 function Calendar() {
   const [weekendsVisible, setWeekendsVisible] = useState(true);
@@ -323,6 +322,7 @@ function Calendar() {
         <div id="external-events">
           <div style={{ margin: ' 0 0 20px' }}>
             <input
+              className="eventBtn"
               type="submit"
               name="name"
               onClick={addEvent}
