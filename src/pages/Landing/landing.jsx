@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { styled } from "styled-components";
-import "../../styles/landing.css";
-import donggukImg from "../../assets/image/donggukImg.png";
-import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Frame from "../../components/Frame/frame";
-import Report from "../../assets/report/TGI.pdf";
-import { Outlet } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { styled } from 'styled-components';
+import '../../styles/landing.css';
+import donggukImg from '../../assets/image/donggukImg.png';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import Frame from '../../components/Frame/frame';
+import Report from '../../assets/report/TGI.pdf';
+import { Outlet } from 'react-router-dom';
 
 const Header = styled.div`
   position: fixed;
@@ -38,22 +38,22 @@ const LdIntroduce = styled.div`
 `;
 
 export const Landing = () => {
-  const [headerClass, setHeaderClass] = useState("hdMenu");
+  const [headerClass, setHeaderClass] = useState('hdMenu');
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollPosition > window.innerHeight * 0.08) {
-      setHeaderClass("scrolledHdMenu");
+      setHeaderClass('scrolledHdMenu');
     } else {
-      setHeaderClass("hdMenu");
+      setHeaderClass('hdMenu');
     }
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -61,8 +61,8 @@ export const Landing = () => {
     <div
       style={{
         backgroundImage: `url(${donggukImg})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
       }}
     >
       <Header>
@@ -72,7 +72,7 @@ export const Landing = () => {
           </div>
           <div className="ldHdContents">
             <div className="ldHdContentsDetail">
-              <Link to="./frame">Project</Link>
+              <Link to="./frame/calendar">Project</Link>
             </div>
             <div className="ldHdContentsDetail">
               <a href={Report} download={Report}>
@@ -93,7 +93,7 @@ export const Landing = () => {
         </Routes>
       </main>
 
-      <div id="detail" style={{ padding: "40vh" }}>
+      <div id="detail" style={{ padding: '40vh' }}>
         <Outlet />
       </div>
       <footer className="landingFooter">
