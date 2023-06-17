@@ -8,10 +8,10 @@
   font-size: 1vh;
   font-weight: 400;
   line-height: 1.4;
-  font-family: "Roboto", sans-serif;
-  color: #000;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
   width: 100%;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .btn1 {
@@ -45,7 +45,7 @@ header {
   left: 0;
   height: 15vh;
   z-index: 2;
-  transition: 0.2s;
+  transition: 0.4s;
 }
 
 .height {
@@ -57,7 +57,7 @@ header {
   left: 0;
   height: 5vh;
   z-index: 2;
-  transition: 0.2s;
+  transition: 0.4s;
 }
 
 /* Header */
@@ -72,7 +72,7 @@ header .header__contents {
   align-items: center;
   font-weight: 700;
   z-index: 4;
-  transition: 0.2s;
+  transition: 0.4s;
 }
 
 header .hdCharacter {
@@ -88,7 +88,7 @@ header .hdCharacter {
   margin-top: 0;
   padding-top: 0;
   justify-content: center;
-  transition: 0.2s;
+  transition: 0.4s;
 }
 
 header .header__contents .header__contents__detail {
