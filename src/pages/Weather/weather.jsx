@@ -12,35 +12,33 @@ import DonutChart from './chart';
 
 const Image = styled.img`
   position: absolute;
-  top: 15vh;
-  height: 118vh;
+  top: 10vh;
+  height: 125vh;
   width: 100vw;
 `;
 
 const Container = styled.div`
-  width: 60vw;
-  margin: 0 auto;
-  margin-left: 18vw;
+  width: 800px;
   position: absolute;
-  margin-top: 12vh;
-  top: 5vh;
+  margin-top: 100px;
+  top: 60px;
   background-color: rgba(232, 235, 240, 0.9);
-  padding-top: 2vh;
-  padding-bottom: 5vh;
+  padding-top: 15px;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 15px;
+  height: 108vh;
 `;
 
 const Title = styled.h1`
   color: #000;
   text-align: center;
-  margin-top: 3vh;
-  font-size: 2vw;
+  margin-top: 20px;
+  font-size: 25px;
 `;
 
 const Temp = styled.div`
   font-weight: bold;
-  font-size: 5vw;
+  font-size: 35px;
 `;
 
 function getAirQualityStatus(value, type) {
