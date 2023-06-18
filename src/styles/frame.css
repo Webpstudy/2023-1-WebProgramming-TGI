@@ -8,10 +8,10 @@
   font-size: 1vh;
   font-weight: 400;
   line-height: 1.4;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #fff;
   width: 100%;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .btn1 {
@@ -174,28 +174,47 @@ header .btnOutline {
   margin-bottom: 0;
   width: 100vw;
   height: 18vh;
-  font-size: 2vh;
-  color: #706e68;
+  color: #b1afaf;
   background-color: #222;
   position: absolute;
   bottom: -50vh;
   display: flex;
   left: 0;
   z-index: 4;
+  padding: 1.5vh 5vw;
+}
+
+.footer .inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer .useAPI {
-  margin-top: 2vh;
-  height: 7vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  font-size: 1.5vh;
+}
+
+.useAPI__detail {
+  display: flex;
+  flex-direction: row;
 }
 
 .footer .GitHub {
-  height: 7vh;
+  padding-top: 2%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2vh;
+  font-size: 1.5vh;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.3vh !important;
+  color: #c6bfbf;
+  padding: 0.5vh 0;
 }

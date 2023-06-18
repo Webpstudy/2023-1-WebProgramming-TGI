@@ -7,6 +7,8 @@ function TeamMember(props) {
       <h3 className="member-name">{props.name}</h3>
       <p className="member-role">학과: {props.role}</p>
       <p className="member-intro">소개: {props.intro}</p>
+      <p className="member-intro">이메일: {props.email}</p>
+      <p className="member-intro">Github: {props.github}</p>
     </div>
   );
 }
@@ -18,23 +20,31 @@ function AboutUs() {
       <div className="team-grid">
         <TeamMember
           name="권좌영"
-          role="(팀원의 학과)"
-          intro="(팀원에 대한 간단한 소개 문구)"
+          role="멀티미디어공학과"
+          intro="2016112623"
+          email="kzoyoung@naver.com"
+          github="https://github.com/Kzoyoung"
         />
         <TeamMember
           name="이용호"
-          role="(팀원의 학과)"
-          intro="(팀원에 대한 간단한 소개 문구)"
+          role="전자전기공학부"
+          intro="2018112437"
+          email="chrisyongho@gmail.com"
+          github="https://github.com/2dydgh"
         />
         <TeamMember
           name="이윤서"
           role="통계학과"
-          intro="(팀원에 대한 간단한 소개 문구)"
+          intro="2020110483"
+          email="yoonseo3269@naver.com"
+          github="https://github.com/lys3269"
         />
         <TeamMember
           name="이태희"
-          role="(팀원의 학과)"
-          intro="(팀원에 대한 간단한 소개 문구)"
+          role="국제통상학전공"
+          intro="2016111076	"
+          email="pyung1591@gmail.com"
+          github="https://github.com/Impyung"
         />
       </div>
     </div>
