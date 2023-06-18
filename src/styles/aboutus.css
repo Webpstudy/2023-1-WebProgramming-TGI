@@ -17,15 +17,23 @@
 }
 
 .team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #f4f4f4;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: left;
+
+  font-size: 1vw;
+  color: #46290d;
+  padding-bottom: 10%;
 }
 
 .member-name {
-  font-size: 20px;
+  font-size: 1.5vw !important;
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
 }
 
@@ -35,5 +43,6 @@
 }
 
 .member-intro {
-  color: #777;
+  color: #555555;
+  margin-bottom: 5px;
 }
