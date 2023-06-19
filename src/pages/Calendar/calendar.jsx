@@ -57,9 +57,11 @@ function Calendar() {
   }
   function handleReceive(eventInfo) {
     const { event } = eventInfo;
-    const { id, title, start, end } = event;
+    const { id, title, start, end, } = event;
     // 추출된 정보를 배열에 추가 또는 원하는 작업 수행
-    const eventData = { id, title, start, end };
+    const eventData = { id : id, title, start, end, backgroundColor: event.backgroundColor, // 이벤트의 backgroundColor 속성 사용
+    borderColor: event.borderColor, // 이벤트의 borderColor 속성 사용
+    allDay: true, };
 
     if (eventData.id === '1') {
       Object.assign(eventData, {
@@ -87,8 +89,8 @@ function Calendar() {
       });
     } else {
       Object.assign(eventData, {
-        backgroundColor: 'black',
-        borderColor: 'black',
+        backgroundColor: '#d6b0eb',
+        borderColor: '#d6b0eb',
         allDay: true,
       });
     }
@@ -291,7 +293,7 @@ function Calendar() {
 
   // 외부 이벤트 목록의 인덱스에 따라 색상을 할당하는 함수
   const getColorByIndex = (index) => {
-    const colors = ['#f1a8bc', '#eee58a', '#c4ecb0', '#addbd8', '#d6b0eb'];
+    const colors = [/* '#f1a8bc', '#eee58a', '#c4ecb0', '#addbd8' */ '#d6b0eb'];
     const colorIndex = index % colors.length;
     return colors[colorIndex];
   };
@@ -340,7 +342,7 @@ function Calendar() {
               style={{
                 backgroundColor: event.color,
                 borderColor: event.color,
-                cursor: 'pointer',
+                cursor: 'grab',
               }}
             >
               <div className="fc-event-main">

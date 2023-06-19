@@ -1,18 +1,19 @@
-import React, { useState, useEffect, useReducer } from 'react';
-import '../../styles/calculator.css';
+import React, { useState, useEffect, useReducer } from "react";
+import "../../styles/calculator.css";
+import GradeChart from "./GradeChart";
 
 function Calculator() {
   // Reducer 부분
   const initialState = {
-    subject: '',
+    subject: "",
     credit: 0,
-    grade: '',
+    grade: "",
     isMajor: false,
     overallGPA: 0,
     majorGPA: 0,
     grades: (() => {
       try {
-        const storedGrades = localStorage.getItem('grades');
+        const storedGrades = localStorage.getItem("grades");
         return storedGrades ? JSON.parse(storedGrades) : [];
       } catch (e) {
         console.error(e);
@@ -25,19 +26,19 @@ function Calculator() {
 
   function reducer(state, action) {
     switch (action.type) {
-      case 'setSubject':
+      case "setSubject":
         return { ...state, subject: action.payload };
-      case 'setCredit':
+      case "setCredit":
         return { ...state, credit: action.payload };
-      case 'setGrade':
+      case "setGrade":
         return { ...state, grade: action.payload };
-      case 'setIsMajor':
+      case "setIsMajor":
         return { ...state, isMajor: action.payload };
-      case 'setOverallGPA':
+      case "setOverallGPA":
         return { ...state, overallGPA: action.payload };
-      case 'setMajorGPA':
+      case "setMajorGPA":
         return { ...state, majorGPA: action.payload };
-      case 'setGrades':
+      case "setGrades":
         return { ...state, grades: action.payload };
       default:
         throw new Error();
@@ -45,27 +46,27 @@ function Calculator() {
   }
 
   const subInputChange = (e) => {
-    dispatch({ type: 'setSubject', payload: e.target.value });
+    dispatch({ type: "setSubject", payload: e.target.value });
   };
 
   const creInputChange = (e) => {
-    dispatch({ type: 'setCredit', payload: e.target.value });
+    dispatch({ type: "setCredit", payload: e.target.value });
   };
 
   const gradeInputChange = (e) => {
-    dispatch({ type: 'setGrade', payload: e.target.value });
+    dispatch({ type: "setGrade", payload: e.target.value });
   };
 
   const isMajorInputChange = (e) => {
-    dispatch({ type: 'setIsMajor', payload: e.target.checked });
+    dispatch({ type: "setIsMajor", payload: e.target.checked });
   };
 
   const setOverallGPA = (value) => {
-    dispatch({ type: 'setOverallGPA', payload: value.toFixed(2) });
+    dispatch({ type: "setOverallGPA", payload: value.toFixed(2) });
   };
 
   const setMajorGPA = (value) => {
-    dispatch({ type: 'setMajorGPA', payload: value.toFixed(2) });
+    dispatch({ type: "setMajorGPA", payload: value.toFixed(2) });
   };
 
   // 하단 부분은 따로 체크하지 않았습니다.
@@ -73,23 +74,23 @@ function Calculator() {
   const deleteGrade = (index) => {
     const updatedGrades = [...state.grades];
     updatedGrades.splice(index, 1);
-    dispatch({ type: 'setGrades', payload: updatedGrades });
-    localStorage.setItem('grades', JSON.stringify(updatedGrades));
+    dispatch({ type: "setGrades", payload: updatedGrades });
+    localStorage.setItem("grades", JSON.stringify(updatedGrades));
   };
 
   useEffect(() => {
-    const storedGrades = localStorage.getItem('grades');
+    const storedGrades = localStorage.getItem("grades");
     if (storedGrades) {
-      dispatch({ type: 'setGrades', payload: JSON.parse(storedGrades) });
+      dispatch({ type: "setGrades", payload: JSON.parse(storedGrades) });
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('grades', JSON.stringify(state.grades));
+    localStorage.setItem("grades", JSON.stringify(state.grades));
   }, [state.grades]);
 
   const addGrade = () => {
-    if (state.subject !== '' && state.credit > 0 && state.grade !== '') {
+    if (state.subject !== "" && state.credit > 0 && state.grade !== "") {
       const newGrade = {
         subject: state.subject,
         credit: state.credit,
@@ -97,8 +98,8 @@ function Calculator() {
         isMajor: state.isMajor,
       };
       const newGrades = [...state.grades, newGrade];
-      dispatch({ type: 'setGrades', payload: newGrades });
-      localStorage.setItem('grades', JSON.stringify(newGrades));
+      dispatch({ type: "setGrades", payload: newGrades });
+      localStorage.setItem("grades", JSON.stringify(newGrades));
     }
   };
 
@@ -134,23 +135,23 @@ function Calculator() {
     // 예시: A+ -> 4.5, A -> 4.0, ...
     // 필요에 따라 성적과 학점 간의 매핑을 수정하세요.
     switch (grade) {
-      case 'A+':
+      case "A+":
         return 4.5;
-      case 'A':
+      case "A":
         return 4.0;
-      case 'B+':
+      case "B+":
         return 3.5;
-      case 'B':
+      case "B":
         return 3.0;
-      case 'C+':
+      case "C+":
         return 2.5;
-      case 'C':
+      case "C":
         return 2.0;
-      case 'D+':
+      case "D+":
         return 1.5;
-      case 'D':
+      case "D":
         return 1.0;
-      case 'F':
+      case "F":
         return 0;
       default:
         return 0;
@@ -159,7 +160,7 @@ function Calculator() {
 
   return (
     <div className="bigContainer">
-      <div className="title_cal">학점계산기</div>
+      <div className="title_cal">학점 계산기</div>
       <div className="smallContainer">
         <div className="firstPart">
           <div className="box">
@@ -222,12 +223,12 @@ function Calculator() {
                     <td>{grade.subject}</td>
                     <td>{grade.credit}</td>
                     <td>{grade.grade}</td>
-                    <td>{grade.isMajor ? '전공' : '비전공'}</td>
+                    <td>{grade.isMajor ? "전공" : "비전공"}</td>
                     <td
                       style={{
-                        border: 'none',
-                        backgroundColor: 'transparent',
-                        width: '40px',
+                        border: "none",
+                        backgroundColor: "#f9f9f9",
+                        width: "40px",
                       }}
                     >
                       <button
@@ -244,27 +245,33 @@ function Calculator() {
           </div>
         </div>
         <div className="thirdPart">
-          <div style={{ marginTop: '10px' }}>
+          <div>
             <button className="cal_btn" onClick={calculateOverallGPA}>
               전체 평점 계산
             </button>
             <div className="result">
               <label>총평점:</label>
-              <input type="number" value={state.overallGPA} readOnly />
+              <input type="number" value={state.overallGPA} readOnly />/ 4.5
             </div>
           </div>
-          <div style={{ marginTop: '60px' }}>
+          <div style={{ marginTop: "80px" }}>
             <button className="cal_btn" onClick={calculateMajorGPA}>
               전공 평점 계산
             </button>
             <div className="result">
               <label>전공평점:</label>
-              <input type="number" value={state.majorGPA} readOnly />
+              <input type="number" value={state.majorGPA} readOnly />/ 4.5
             </div>
           </div>
         </div>
       </div>
+      <div className="chart">
+            {/* 막대 그래프 표시 */}
+            <GradeChart grades={state.grades} />
+          </div>
     </div>
+    
+    
   );
 }
 

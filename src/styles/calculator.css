@@ -1,9 +1,9 @@
 .bigContainer {
-  width: 70vw;
+  width: 80vw;
   margin: 0 auto;
-  margin-left: 15vw;
+  margin-left: 10vw;
   position: absolute;
-  margin-top: 25vh;
+  margin-top: 22vh;
   top: 5px;
   color: #585e58;
 }
@@ -25,8 +25,9 @@ form {
   text-align: center;
   font-size: 40px;
   margin-bottom: 20px;
-  background-color: #f2f2f2;
+  background-color: rgba(60,53,48,0.5);
   border: 1px solid #ddd;
+  color:#fff;
 }
 
 label {
@@ -45,8 +46,8 @@ input[type="text"] {
   border-radius: 4px;
 }
 input[type="number"] {
-  width: 30%;
-  padding: 6px;
+  width: 15%;
+  padding: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-left: 5px;
@@ -60,8 +61,8 @@ select {
 .cal_btn {
   display: block;
   width: 100%;
-  padding: 8px;
-  background-color: #4caf50;
+  padding-bottom: 1px;
+  background-color:#AACD6E;
   color: white;
   border: none;
   border-radius: 4px;
@@ -69,7 +70,7 @@ select {
   margin-top: 10px;
 }
 .cal_btn:hover {
-  background-color: #585e58;
+  background-color: rgba(60,53,48,0.5);
 }
 
 .result {
@@ -80,34 +81,53 @@ select {
 
 .grade-table {
   border-collapse: collapse;
-  width: 110%;
+  width: 105%;
 }
 
 .grade-table th,
 .grade-table td {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 2px;
   text-align: center;
 }
-
+.grade-table tr:nth-child(even){
+  background-color:rgba(246,234,140,0.5);
+}
 .grade-table th {
-  background-color: #f2f2f2;
+  background-color:rgba(197,198,182,0.5);
+}
+.delete_btn {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 0.5em;
+  font-weight: 1000;
+  font-family: inherit;
+  background-color: #f0eeee;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color:#585e58;
+  margin-left: 7px;
+}
+.delete_btn:hover{
+  background-color:rgba(165,223,249,0.5);
+  ;
 }
 .firstPart {
-  width: 300px;
+  width: 22vw;
   padding: 30px;
   border: 2px solid #ddd;
   margin: 3px;
 }
 .secondPart {
-  width: 300px;
+  width: 22vw;
   padding: 30px;
   border: 2px solid #ddd;
   margin: 3px;
   font-size: 0.7vw;
 }
 .thirdPart {
-  width: 300px;
+  width: 22vw;
   padding: 30px;
   border: 2px solid #ddd;
   margin: 3px;
@@ -126,14 +146,11 @@ select {
 .box input[type="checkbox"] {
   margin-right: 5px;
 }
-.delete_btn {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 1000;
-  font-family: inherit;
-  background-color: #f0eeee;
-  cursor: pointer;
-  transition: border-color 0.25s;
+
+.chart{
+  height:38vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2vh;
 }

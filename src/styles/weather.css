@@ -93,9 +93,9 @@ p {
 }
 
 .weatherTitle {
-  font-size: 25px;
+  font-size: 22px;
   display: block;
-  height: 7vh;
+  height: 4vh;
 }
 
 .atStatus {

@@ -16,6 +16,7 @@ const Container = styled.div`
   position: absolute;
   margin-top: 17vh;
   top: 5px;
+  height: 105vh;
 `;
 
 const Title = styled.h1`

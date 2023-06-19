@@ -1,37 +1,54 @@
 .not-found {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+  background-color: blue;
+}
+.background-image{
+  position: fixed;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fade-in 1s ease-in-out;
+  width: 512px;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+  100% {
+    opacity: 1;
     transform: translate(-50%, -50%);
-    text-align: center;
-    animation: fade-in 1s ease-in-out;
-    width:512px;
   }
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-      transform: translate(-50%, -60%);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -50%);
-    }
-  }
-  .not-found p {
-    font-size: 2.6rem;
-    color: rgb(100, 121, 138);
-    font-weight:bold;
-  }
+}
+.not-found p {
+  font-size: 2.6rem;
+  color: rgb(100, 121, 138);
+  font-weight: bold;
+  position: fixed;
+  top: 83%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fade-in 2s ease-in-out;
+  width: 512px;
+  margin : 0px;
+}
 
-  .not-found .home-link {
-    font-size: 2.3rem;
-    color: rgba(235,240,243);
-    background-color: rgba(58,85,106);
-    padding: 12px 24px;
-    border-radius: 10px;
-    text-decoration: none;
-    position: relative; 
-  }
-  .home-link:hover {
-    background-color: rgba(68,196,161);
-  }
+.not-found .home-link {
+  font-size: 2.3rem;
+  color: rgba(235, 240, 243);
+  background-color: rgba(58, 85, 106);
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  animation: fade-in 2s ease-in-out;
+}
+.home-link:hover {
+  background-color: rgba(68, 196, 161);
+}
+

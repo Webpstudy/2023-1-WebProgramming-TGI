@@ -26,7 +26,7 @@ const Container = styled.div`
   padding-top: 15px;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 15px;
-  height: 108vh;
+  height: 100vh;
 `;
 
 const Title = styled.h1`
@@ -34,6 +34,7 @@ const Title = styled.h1`
   text-align: center;
   margin-top: 20px;
   font-size: 25px;
+  
 `;
 
 const Temp = styled.div`
