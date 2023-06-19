@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/aboutus.css"; // 스타일 파일을 import합니다.
 import propile1 from "../../assets/image/이태희.jpg";
 import propile3 from "../../assets/image/이윤서.jpg";
+import propile2 from "../../assets/image/권좌영.jpg";
 
 function TeamMember(props) {
   return (
@@ -24,7 +25,7 @@ function AboutUs() {
       <h2 className="page-title">팀원 소개</h2>
       <div className="team-grid">
         <TeamMember
-          img={propile1}
+          img={propile2}
           name="권좌영"
           role="멀티미디어공학과"
           intro="2016112623"

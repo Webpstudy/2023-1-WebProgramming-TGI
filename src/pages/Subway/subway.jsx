@@ -131,13 +131,12 @@ const Subway = () => {
     <Container>
       <div className="subwayOutLine">
         <Title className="subwayTitle">
-          <span class="material-symbols-outlined">directions_subway</span>
           지하철 실시간 정보
         </Title>
 
         <div className="subBtnContainer">
           <Line4 />
-          <Line3 />
+          <Line3 /> 
           <Refresh />
         </div>
         <DonggukUniv />
