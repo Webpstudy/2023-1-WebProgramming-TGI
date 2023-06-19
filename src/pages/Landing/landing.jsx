@@ -99,20 +99,26 @@ export const Landing = () => {
       <div id="detail" style={{ height: "120vh" }}>
         <Outlet />
       </div>
-      <footer className="landingFooter">
+      <footer className="footer">
         <div className="inner">
           <div className="useAPI">
-            <p>API</p>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
+            <p className="title">API</p>
+            <div className="useAPI__detail">
+              <a href="https://openweathermap.org/api">날씨 </a>
+              &nbsp;&nbsp;
+              <a href="https://data.seoul.go.kr/dataList/OA-12764/F/1/datasetView.do">
+                지하철
+              </a>
+              &nbsp;&nbsp;
+              <a href="https://github.com/fullcalendar/fullcalendar">캘린더</a>
+            </div>
           </div>
           <div className="GitHub">
-            <p>팀원 깃허브 주소</p>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
-            <a href=""></a>
+            <div className="title">팀 깃허브 주소</div>
+
+            <a href="https://github.com/Webpstudy/2023-1-WebProgramming-TGI">
+              https://github.com/Webpstudy/2023-1-WebProgramming-TGI
+            </a>
           </div>
         </div>
       </footer>

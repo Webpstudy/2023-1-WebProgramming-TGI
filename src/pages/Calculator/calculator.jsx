@@ -1,7 +1,14 @@
 import React, { useState, useEffect, useReducer } from "react";
 import "../../styles/calculator.css";
 import GradeChart from "./GradeChart";
-
+import {
+  FaBook,
+  FaCheese,
+  FaHeart,
+  FaCheckSquare,
+  FaPray,
+  FaCalculator
+} from "react-icons/fa";
 function Calculator() {
   // Reducer 부분
   const initialState = {
@@ -131,9 +138,7 @@ function Calculator() {
   };
 
   const calculateGradePoint = (grade) => {
-    // 성적에 따른 학점을 매핑하여 반환하는 함수 (설정에 맞게 수정 필요)
-    // 예시: A+ -> 4.5, A -> 4.0, ...
-    // 필요에 따라 성적과 학점 간의 매핑을 수정하세요.
+  
     switch (grade) {
       case "A+":
         return 4.5;
@@ -160,10 +165,11 @@ function Calculator() {
 
   return (
     <div className="bigContainer">
-      <div className="title_cal">학점 계산기</div>
+      <div className="title_cal">학점 계산기 <FaCalculator></FaCalculator> </div>
       <div className="smallContainer">
         <div className="firstPart">
           <div className="box">
+            <FaBook className="icon" size={20}/>
             <label>과목명:</label>
             <input
               type="text"
@@ -172,6 +178,7 @@ function Calculator() {
             />
           </div>
           <div className="box">
+            <FaCheese className="icon" size={20}/>
             <label>학점:</label>
             <input
               type="number"
@@ -180,6 +187,7 @@ function Calculator() {
             />
           </div>
           <div className="box">
+            <FaHeart className="icon" size={20}/>
             <label>성적:</label>
             <select value={state.grade} onChange={gradeInputChange}>
               <option value="">성적 선택</option>
@@ -195,6 +203,7 @@ function Calculator() {
             </select>
           </div>
           <div className="box">
+            <FaCheckSquare className="icon" size={20} />
             <label>전공:</label>
             <input
               type="checkbox"
@@ -206,8 +215,11 @@ function Calculator() {
             추가
           </button>
         </div>
-        <div className="secondPart">
-          <div className="result_table">
+        <div className="secondPart ">
+          <div
+            className="result_table"
+            style={{ height: "36vh", overflowY: "scroll" }}
+          >
             <table className="grade-table">
               <thead>
                 <tr>
@@ -250,8 +262,14 @@ function Calculator() {
               전체 평점 계산
             </button>
             <div className="result">
+              <FaPray className="icon" size={20}/>
               <label>총평점:</label>
-              <input type="number" value={state.overallGPA} readOnly />/ 4.5
+              <div className="gpaWrapper">
+        <input type="number" value={state.overallGPA} readOnly />/ 4.5
+        {state.overallGPA >= 1.0 && (
+          <div className="congratulations">수고하셨습니다!</div>
+        )}
+      </div>
             </div>
           </div>
           <div style={{ marginTop: "80px" }}>
@@ -259,18 +277,22 @@ function Calculator() {
               전공 평점 계산
             </button>
             <div className="result">
+            <FaPray className="icon" size={20} />
               <label>전공평점:</label>
+              <div>
               <input type="number" value={state.majorGPA} readOnly />/ 4.5
+              {state.majorGPA >= 1.0 && (
+          <div className="congratulations">수고하셨습니다!</div>
+        )}</div>
             </div>
           </div>
         </div>
       </div>
       <div className="chart">
-            {/* 막대 그래프 표시 */}
-            <GradeChart grades={state.grades} />
-          </div>
+        {/* 막대 그래프 표시 */}
+        <GradeChart grades={state.grades} />
+      </div>
     </div>
-    
     
   );
 }
