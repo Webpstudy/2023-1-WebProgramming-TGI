@@ -1,4 +1,6 @@
 .team-page {
+  position:relative;
+  top:15vh;
   text-align: center;
   padding: 20px;
   background-color: #d8a14e;

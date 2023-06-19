@@ -8,14 +8,15 @@ import Report from "../../assets/report/TGI.pdf";
 import { Outlet } from "react-router-dom";
 
 const Header = styled.div`
-  position: fixed;
-  left: 2vh;
-  top: 0px;
-  width: 98%;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.3);
-  z-index: 2;
-  display: flex;
-  font-size: 3vh;
+position: fixed;
+left: 0vh;
+top: 0px;
+width: 100%;
+border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+z-index: 2;
+display: flex;
+font-size: 3vh;
+background-color:white;
 `;
 
 const Image = styled.img`
@@ -95,7 +96,7 @@ export const Landing = () => {
         </Routes>
       </main>
 
-      <div id="detail" style={{ padding: "40vh" }}>
+      <div id="detail" style={{ height: "120vh" }}>
         <Outlet />
       </div>
       <footer className="landingFooter">
