@@ -9,10 +9,11 @@ const Button = styled.button`
   font-size: 0;
   font-weight: 0;
   cursor: pointer;
+  background-color: #fafbfc;
 `;
 
 const Img = styled.img`
-  width: vh;
+  width: 2.3vh;
   height: 2vh;
 `;
 
