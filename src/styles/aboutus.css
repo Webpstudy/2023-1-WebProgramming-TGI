@@ -1,21 +1,22 @@
 .team-page {
-  position:relative;
-  top:15vh;
+  position: relative;
+  top: 15vh;
   text-align: center;
   padding: 20px;
-  background-color: #d8a14e;
+  background-color: #37332d83;
+  height: 100%;
 }
 
 .page-title {
-  font-size: 28px;
+  font-size: 2vw;
   margin-bottom: 30px;
-  color: #46290d;
+  color: #ffffff;
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(10%, 1fr));
+  grid-gap: 3%;
 }
 
 .team-member {
@@ -28,7 +29,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
   font-size: 1vw;
-  color: #46290d;
+  color: #000000;
   padding-bottom: 10%;
 }
 
@@ -45,6 +46,19 @@
 }
 
 .member-intro {
-  color: #555555;
+  color: #4b4b4b;
   margin-bottom: 5px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+
+.member-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }

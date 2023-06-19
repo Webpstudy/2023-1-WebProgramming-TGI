@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import DonggukUniv from './DonggukUniv';
-import styled from 'styled-components';
-import ChungMuRo4 from './Chungmuro4';
-import ChungMuRo3 from './Chungmuro3';
-import Refresh from './refresh';
-import Line3 from './line3Btn';
-import Line4 from './line4Btn';
-import '../../styles/subway.css';
+import React, { useEffect, useState } from "react";
+import DonggukUniv from "./DonggukUniv";
+import styled from "styled-components";
+import ChungMuRo4 from "./Chungmuro4";
+import ChungMuRo3 from "./Chungmuro3";
+import Refresh from "./refresh";
+import Line3 from "./line3Btn";
+import Line4 from "./line4Btn";
+import "../../styles/subway.css";
 
 const Container = styled.div`
   width: 90vw;
@@ -30,8 +30,8 @@ const SubwayInfoContainer = styled.div`
   margin-bottom: 16px;
   margin-left: 2vw;
   width: 39vw;
-  background-color: ${(props) => props.styledprops?.bgColor || '#fafbfc'};
-  border-left: ${(props) => props.styledprops?.borderLeft || 'red'};
+  background-color: ${(props) => props.styledprops?.bgColor || "#fafbfc"};
+  border-left: ${(props) => props.styledprops?.borderLeft || "red"};
 `;
 
 const LineTitle = styled.h2`
@@ -50,7 +50,7 @@ const InfoItem = styled.li`
   align-items: center;
   margin-bottom: 4px;
   color: ${(props) =>
-    props.styledprops ? props.styledprops.color : 'inherit'};
+    props.styledprops ? props.styledprops.color : "inherit"};
 `;
 
 const StationName = styled.span`
@@ -59,7 +59,7 @@ const StationName = styled.span`
 `;
 
 const ArrivalTime = styled.span`
-  color: ${(props) => (parseInt(props.time, 10) < 1 ? 'blue' : '#888')};
+  color: ${(props) => (parseInt(props.time, 10) < 1 ? "blue" : "#888")};
 `;
 
 const LoadingText = styled.div`
@@ -103,11 +103,11 @@ const SubwayInfo = ({ line, lineId, direction, styledprops }) => {
           if (info.subwayId === lineId && info.updnLine === direction) {
             if (info.barvlDt <= 60) {
               styledprops = {
-                color: 'red',
+                color: "red",
               };
             } else {
               styledprops = {
-                color: 'black',
+                color: "black",
               };
             }
             return (
@@ -130,7 +130,10 @@ const Subway = () => {
   return (
     <Container>
       <div className="subwayOutLine">
-        <Title>Subway Real-time Info</Title>
+        <Title className="subwayTitle">
+          <span class="material-symbols-outlined">directions_subway</span>
+          지하철 실시간 정보
+        </Title>
 
         <div className="subBtnContainer">
           <Line4 />
@@ -145,7 +148,7 @@ const Subway = () => {
             lineId="1003"
             direction="하행"
             styledprops={{
-              borderLeft: '1px dotted grey',
+              borderLeft: "1px dotted grey",
             }}
           />
         </div>
@@ -159,7 +162,7 @@ const Subway = () => {
             lineId="1003"
             direction="하행"
             styledprops={{
-              borderLeft: '1px dotted grey',
+              borderLeft: "1px dotted grey",
             }}
           />
         </div>
@@ -172,7 +175,7 @@ const Subway = () => {
             lineId="1004"
             direction="하행"
             styledprops={{
-              borderLeft: '1px dotted grey',
+              borderLeft: "1px dotted grey",
             }}
           />
         </div>
