@@ -94,7 +94,7 @@ p {
 
 .weatherTitle {
   font-size: 22px;
-  display: block;
+  display: inline;
   height: 4vh;
 }
 

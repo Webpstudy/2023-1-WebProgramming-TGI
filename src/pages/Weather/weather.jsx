@@ -9,6 +9,9 @@ import {
 import { LuWind } from 'react-icons/lu';
 import Sky from '../../assets/image/sky.png';
 import DonutChart from './chart';
+import {
+  FaLocationArrow
+} from "react-icons/fa";
 
 const Image = styled.img`
   position: absolute;
@@ -34,7 +37,6 @@ const Title = styled.h1`
   text-align: center;
   margin-top: 20px;
   font-size: 25px;
-  
 `;
 
 const Temp = styled.div`
@@ -247,11 +249,11 @@ function Weather() {
   return (
     <div className="weather">
       <Image src={Sky} />
-
       <Container>
         <div>
           <Title>
-            <div className="weatherTitle">서울시 중구 동국대학교 날씨현황</div>
+            <div className="weatherTitle">서울시 중구 동국대학교 날씨현황 </div>
+            <FaLocationArrow className="icon" size={20} />
           </Title>
           <WeatherInfo />
           <div className="atStatus">

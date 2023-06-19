@@ -1,20 +1,13 @@
 /* COMMON */
-#root {
-}
-
 .Main {
   margin: 0;
   padding: 0;
   font-size: 1vh;
   font-weight: 400;
   line-height: 1.4;
-  font-family: "Roboto", sans-serif;
   color: #fff;
   width: 100%;
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-.btn1 {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 img {
@@ -199,7 +192,7 @@ header .btnOutline {
 
 .footer {
   margin-bottom: 0;
-  width: 100vw;
+  width: 89.5vw;
   height: 18vh;
   color: #b1afaf;
   background-color: #222;

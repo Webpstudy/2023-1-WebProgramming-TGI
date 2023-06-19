@@ -7,3 +7,21 @@
 .subwayOutLine {
   display: fixed;
 }
+
+.subBtnContainer {
+  display: flex;
+}
+
+.subwayTitle {
+  padding-top: 2vh;
+  color: #000000;
+  font-size: 3.5em;
+  font-weight: bold;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: 2em;
+  margin-right: 0.5em;
+  margin-bottom: 0;
+}
