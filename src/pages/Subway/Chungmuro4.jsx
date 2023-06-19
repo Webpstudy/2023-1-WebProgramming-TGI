@@ -37,7 +37,7 @@ const LittleRoundedShape = styled.div`
   border-left: 1px solid #00a5de;
   border-bottom: 1px solid #00a5de;
   border-top: 1px solid #00a5de;
-  background-color: #ffffff;
+  background-color: #fafbfc;
   padding-left: 10px;
 `;
 const LittleRoundedShapeRight = styled.div`
@@ -48,7 +48,7 @@ const LittleRoundedShapeRight = styled.div`
   border-right: 1px solid #00a5de;
   border-bottom: 1px solid #00a5de;
   border-top: 1px solid #00a5de;
-  background-color: #ffffff;
+  background-color: #fafbfc;
   padding-right: 10px;
 `;
 

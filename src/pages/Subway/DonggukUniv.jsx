@@ -37,7 +37,7 @@ const LittleRoundedShape = styled.div`
   border-left: 1px solid #f9ae00;
   border-bottom: 1px solid #f9ae00;
   border-top: 1px solid #f9ae00;
-  background-color: #ffffff;
+  background-color: #fafbfc;
 `;
 const LittleRoundedShapeRight = styled.div`
   width: 3vw;
@@ -47,7 +47,7 @@ const LittleRoundedShapeRight = styled.div`
   border-right: 1px solid #f9ae00;
   border-bottom: 1px solid #f9ae00;
   border-top: 1px solid #f9ae00;
-  background-color: #ffffff;
+  background-color: #fafbfc;
 `;
 
 const ShapeTextleft = styled.span`
@@ -79,7 +79,7 @@ const DonggukUniv = () => {
         <ShapeTextleft> &lt; 충무로 </ShapeTextleft>
       </RoundedShape>
       <LittleRoundedShape />
-      <ShapeTextcenter> 동대입구</ShapeTextcenter>
+      <ShapeTextcenter>동대입구</ShapeTextcenter>
       <LittleRoundedShapeRight />
 
       <RoundedShapeRight>

@@ -1,87 +1,108 @@
-import "../../styles/frame.css";
-import React, { useEffect, useState } from "react";
-import { gsap } from "gsap";
-import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Calendar from "../../pages/Calendar/calendar";
-import Subway from "../../pages/Subway/subway";
-import Weather from "../../pages/Weather/weather";
-import Calculator from "../../pages/Calculator/calculator";
-import BurgerImg from "../../assets/icons/menu.svg";
-import closeImg from "../../assets/icons/close.svg";
-import {BsCalendarCheck,BsCalculator} from 'react-icons/bs';
-import {TiWeatherPartlySunny} from 'react-icons/ti';
-import {FaSubway} from 'react-icons/fa';
-
+import '../../styles/frame.css';
+import React, { useEffect, useState } from 'react';
+import { gsap } from 'gsap';
+import {
+  Link,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from 'react-router-dom';
+import Calendar from '../../pages/Calendar/calendar';
+import Subway from '../../pages/Subway/subway';
+import Weather from '../../pages/Weather/weather';
+import Calculator from '../../pages/Calculator/calculator';
+import BurgerImg from '../../assets/icons/menu.svg';
+import closeImg from '../../assets/icons/close.svg';
+import { BsCalendarCheck, BsCalculator } from 'react-icons/bs';
+import { TiWeatherPartlySunny } from 'react-icons/ti';
+import { FaSubway } from 'react-icons/fa';
 
 function Frame() {
-  const load = () => {
-    const visible = document.querySelector(".project-menu");
-    const isDisplayed = visible.style.display !== "none";
+  const location = useLocation();
 
-    gsap.to(".calendar-app, .subwayOutLine, .weather, .bigContainer", 0.4, {
+  const load = () => {
+    const visible = document.querySelector('.project-menu');
+    const isDisplayed = visible.style.display !== 'none';
+
+    gsap.to('.calendar-app, .subwayOutLine, .weather, .bigContainer', 0.4, {
       opacity: isDisplayed ? 1 : 0.2,
     });
 
     gsap.to(visible, 0.4, {
       opacity: isDisplayed ? 0 : 1,
-      display: isDisplayed ? "none" : "block",
+      display: isDisplayed ? 'none' : 'block',
     });
   };
 
   const cl = () => {
-    const invisible = document.querySelector(".project-menu");
-    const isInvisible = invisible.style.display === "none";
+    const invisible = document.querySelector('.project-menu');
+    const isInvisible = invisible.style.display === 'none';
 
-    gsap.to(".calendar-app, .subwayOutLine, .weather, .bigContainer", 0.4, {
+    gsap.to('.calendar-app, .subwayOutLine, .weather, .bigContainer', 0.4, {
       opacity: isInvisible ? 0.2 : 1,
     });
 
     gsap.to(invisible, 0.4, {
       opacity: isInvisible ? 1 : 0,
-      display: isInvisible ? "block" : "none",
+      display: isInvisible ? 'block' : 'none',
     });
   };
 
-  const [headerClass, setHeaderClass] = useState("");
-  const [headerContent, setHeaderContent] = useState("header__contents");
-  const [pageNames, setPageNames] = useState({
-    page: "학사 일정",
-  });
+  const [headerClass, setHeaderClass] = useState('');
+  const [headerContent, setHeaderContent] = useState('header__contents');
+
+  const getPageNameFromPath = () => {
+    switch (location.pathname) {
+      case '/frame/calendar':
+        return '학사 일정';
+      case '/frame/weather':
+        return '날씨';
+      case '/frame/subway':
+        return '지하철';
+      case '/frame/calculator':
+        return '학점 계산기';
+      default:
+        return '학사 일정';
+    }
+  };
+
+  const [pageNames, setPageNames] = useState({ page: getPageNameFromPath() });
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
 
     if (scrollPosition > window.innerHeight * 0.08) {
-      setHeaderClass("height");
-      setHeaderContent("hdCharacter");
+      setHeaderClass('height');
+      setHeaderContent('hdCharacter');
     } else {
-      setHeaderClass("");
-      setHeaderContent("header__contents");
+      setHeaderClass('');
+      setHeaderContent('header__contents');
     }
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    setPageNames({ page: getPageNameFromPath() });
+  }, [location]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  
-  const HandleIcon = ({status})=>{
-    if(status==="학사 일정"){
-      return(<BsCalendarCheck/> );
+  const HandleIcon = ({ status }) => {
+    if (status === '학사 일정') {
+      return <BsCalendarCheck />;
+    } else if (status === '날씨') {
+      return <TiWeatherPartlySunny />;
+    } else if (status === '지하철') {
+      return <FaSubway />;
+    } else if (status === '학점 계산기') {
+      return <BsCalculator />;
     }
-    else if(status==="날씨"){
-      return(<TiWeatherPartlySunny/> );
-    }
-    else if(status==="지하철"){
-      return(<FaSubway/> );
-    }
-    else if(status==="학점 계산기"){
-      return(<BsCalculator/> );
-    }
-  }
+  };
 
   return (
     <div className="Main">
@@ -92,7 +113,10 @@ function Frame() {
           </div>
         </div>
         <div className={headerContent}>
-          <div className="header__contents__detail"><HandleIcon status={pageNames.page}/>&nbsp;{pageNames.page}</div>
+          <div className="header__contents__detail">
+            <HandleIcon status={pageNames.page} />
+            &nbsp;{pageNames.page}
+          </div>
         </div>
       </header>
 
@@ -113,26 +137,29 @@ function Frame() {
               <Link
                 to="./calendar"
                 onClick={() =>
-                  setPageNames({ ...pageNames, page: "학사 일정"})
+                  setPageNames({ ...pageNames, page: '학사 일정' })
                 }
               >
-                <BsCalendarCheck/>&nbsp;학사일정
+                <BsCalendarCheck />
+                &nbsp;학사일정
               </Link>
             </li>
             <li className="menu__li">
               <Link
                 to="./weather"
-                onClick={() => setPageNames({ ...pageNames, page: "날씨" })}
+                onClick={() => setPageNames({ ...pageNames, page: '날씨' })}
               >
-                <TiWeatherPartlySunny/>&nbsp;날씨
+                <TiWeatherPartlySunny />
+                &nbsp;날씨
               </Link>
             </li>
             <li className="menu__li">
               <Link
                 to="./subway"
-                onClick={() => setPageNames({ ...pageNames, page: "지하철" })}
+                onClick={() => setPageNames({ ...pageNames, page: '지하철' })}
               >
-                <FaSubway/>&nbsp;지하철
+                <FaSubway />
+                &nbsp;지하철
               </Link>
             </li>
             <li className="menu__li">
@@ -141,11 +168,12 @@ function Frame() {
                 onClick={() =>
                   setPageNames({
                     ...pageNames,
-                    page: "학점 계산기",
+                    page: '학점 계산기',
                   })
                 }
               >
-                <BsCalculator/>&nbsp;학점계산기
+                <BsCalculator />
+                &nbsp;학점계산기
               </Link>
             </li>
           </ul>

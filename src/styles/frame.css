@@ -85,7 +85,7 @@ header .hdCharacter {
 }
 
 header .header__contents .header__contents__detail {
-  width: 60%;
+  width: 65%;
   height: 100%;
   display: flex;
   justify-content: flex-end;
