@@ -7,3 +7,7 @@
 .subwayOutLine {
   display: fixed;
 }
+
+.subBtnContainer {
+  display: flex;
+}
