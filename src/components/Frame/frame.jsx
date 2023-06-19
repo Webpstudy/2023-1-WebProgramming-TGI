@@ -8,6 +8,10 @@ import Weather from "../../pages/Weather/weather";
 import Calculator from "../../pages/Calculator/calculator";
 import BurgerImg from "../../assets/icons/menu.svg";
 import closeImg from "../../assets/icons/close.svg";
+import {BsCalendarCheck,BsCalculator} from 'react-icons/bs';
+import {TiWeatherPartlySunny} from 'react-icons/ti';
+import {FaSubway} from 'react-icons/fa';
+
 
 function Frame() {
   const load = () => {
@@ -63,6 +67,22 @@ function Frame() {
     };
   }, []);
 
+  
+  const HandleIcon = ({status})=>{
+    if(status==="학사 일정"){
+      return(<BsCalendarCheck/> );
+    }
+    else if(status==="날씨"){
+      return(<TiWeatherPartlySunny/> );
+    }
+    else if(status==="지하철"){
+      return(<FaSubway/> );
+    }
+    else if(status==="학점 계산기"){
+      return(<BsCalculator/> );
+    }
+  }
+
   return (
     <div className="Main">
       <header className={headerClass}>
@@ -72,7 +92,7 @@ function Frame() {
           </div>
         </div>
         <div className={headerContent}>
-          <div className="header__contents__detail">{pageNames.page}</div>
+          <div className="header__contents__detail"><HandleIcon status={pageNames.page}/>&nbsp;{pageNames.page}</div>
         </div>
       </header>
 
@@ -93,10 +113,10 @@ function Frame() {
               <Link
                 to="./calendar"
                 onClick={() =>
-                  setPageNames({ ...pageNames, page: "학사 일정" })
+                  setPageNames({ ...pageNames, page: "학사 일정"})
                 }
               >
-                학사일정
+                <BsCalendarCheck/>&nbsp;학사일정
               </Link>
             </li>
             <li className="menu__li">
@@ -104,7 +124,7 @@ function Frame() {
                 to="./weather"
                 onClick={() => setPageNames({ ...pageNames, page: "날씨" })}
               >
-                날씨
+                <TiWeatherPartlySunny/>&nbsp;날씨
               </Link>
             </li>
             <li className="menu__li">
@@ -112,7 +132,7 @@ function Frame() {
                 to="./subway"
                 onClick={() => setPageNames({ ...pageNames, page: "지하철" })}
               >
-                지하철
+                <FaSubway/>&nbsp;지하철
               </Link>
             </li>
             <li className="menu__li">
@@ -125,7 +145,7 @@ function Frame() {
                   })
                 }
               >
-                학점계산기
+                <BsCalculator/>&nbsp;학점계산기
               </Link>
             </li>
           </ul>

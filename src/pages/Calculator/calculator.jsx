@@ -165,7 +165,7 @@ function Calculator() {
   return (
     <div className="bigContainer">
       <div className="title_cal">
-        학점 계산기 <FaCalculator></FaCalculator>{' '}
+        학점 계산기
       </div>
       <div className="smallContainer">
         <div className="firstPart">
