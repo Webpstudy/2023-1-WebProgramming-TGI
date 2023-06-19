@@ -132,9 +132,11 @@ const Subway = () => {
       <div className="subwayOutLine">
         <Title>Subway Real-time Info</Title>
 
-        <Line4 />
-        <Line3 />
-        <Refresh />
+        <div className="subBtnContainer">
+          <Line4 />
+          <Line3 />
+          <Refresh />
+        </div>
         <DonggukUniv />
         <div className="abc">
           <SubwayInfo line="동대입구" lineId="1003" direction="상행" />
