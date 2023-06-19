@@ -111,3 +111,7 @@ p {
 .weather {
   position: absolute;
 }
+
+#charttext{
+  font-size: 2vh;
+}

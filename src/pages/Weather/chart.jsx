@@ -51,18 +51,18 @@ const DonutChart = ({ status, text }) => {
 
   return (
     <div>
-      <div style={{ position: 'relative', width: '150px', height: '17vh' }}>
+      <div style={{ position: 'relative', width: '15vh', height: '15vh' }}>
         <Doughnut data={data} options={options} ref={chartRef} />
         <div
           style={{
             position: 'absolute',
             top: '50%',
-            left: '75px',
+            left: '50%',
             transform: 'translate(-50%, -50%)',
             textAlign: 'center',
           }}
         >
-          <h3>{text}</h3>
+          <div id="charttext">{text}</div>
         </div>
       </div>
     </div>
