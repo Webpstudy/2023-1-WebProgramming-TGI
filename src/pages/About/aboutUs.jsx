@@ -7,7 +7,7 @@ import propile2 from "../../assets/image/권좌영.jpg";
 function TeamMember(props) {
   return (
     <div className="team-member">
-      <div class="box">
+      <div className="box">
         <img src={props.img} className="member-img"></img>
       </div>
       <h3 className="member-name">{props.name}</h3>
