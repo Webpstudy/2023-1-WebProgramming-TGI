@@ -103,3 +103,8 @@ h1 {
   margin: 10px;
   font-size: 2vh;
 }
+
+#webpTGI{
+  position:relative;
+  left:20px;
+}
