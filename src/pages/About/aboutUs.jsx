@@ -3,6 +3,8 @@ import "../../styles/aboutus.css"; // 스타일 파일을 import합니다.
 import propile1 from "../../assets/image/이태희.jpg";
 import propile3 from "../../assets/image/이윤서.jpg";
 import propile2 from "../../assets/image/권좌영.jpg";
+import propile4 from "../../assets/image/이용호.png";
+
 
 function TeamMember(props) {
   return (
@@ -33,7 +35,7 @@ function AboutUs() {
           github="https://github.com/Kzoyoung"
         />
         <TeamMember
-          img={propile1}
+          img={propile4}
           name="이용호"
           role="전자전기공학부"
           intro="2018112437"

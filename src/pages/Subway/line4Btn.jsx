@@ -14,6 +14,11 @@ const Button = styled.button`
   width: 3vh;
   height: 3vh;
   margin-left: 5vh;
+  &:hover {
+    /* hover 효과 스타일 */
+    background-color: #00a5de;
+    color: #fff;
+  }
 `;
 
 const Line4 = () => {

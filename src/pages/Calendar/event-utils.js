@@ -69,8 +69,8 @@ export const INITIAL_EVENTS = [ //기간은 +1해야함
     title: '전과,연계전공,졸업연기 신청',
     start: "2023-06-01",
     end: '2023-06-08',
-    backgroundColor : '#F6B352',
-    borderColor : '#F6B352',
+    backgroundColor : '#e6549d',
+    borderColor : '#e6549d',
     editable: false,
   },
   {

@@ -219,7 +219,7 @@ function Calculator() {
         <div className="secondPart ">
           <div
             className="result_table"
-            style={{ height: '36vh', overflowY: 'scroll' }}
+            style={{ height: '42vh', overflowY: 'scroll' }}
           >
             <table className="grade-table">
               <thead>

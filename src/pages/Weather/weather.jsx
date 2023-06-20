@@ -13,11 +13,27 @@ import {
   FaLocationArrow
 } from "react-icons/fa";
 
+const ImageContainer = styled.div`
+  display: flex;
+  overflow: hidden;
+  width: 100vw;
+  height: 125vh;
+`;
+
 const Image = styled.img`
-  position: absolute;
-  top: 10vh;
+  flex-shrink: 0;
   height: 125vh;
   width: 100vw;
+  animation: slide 30s linear infinite;
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 `;
 
 const Container = styled.div`
@@ -248,7 +264,10 @@ const WeatherInfo = () => {
 function Weather() {
   return (
     <div className="weather">
-      <Image src={Sky} />
+         <ImageContainer>
+        <Image src={Sky} />
+        <Image src={Sky} />
+      </ImageContainer>
       <Container>
         <div>
           <Title>
