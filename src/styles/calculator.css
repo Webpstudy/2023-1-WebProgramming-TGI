@@ -92,7 +92,7 @@ select {
 .grade-table th,
 .grade-table td {
   border: 1px solid #ddd;
-  padding: 2px;
+  padding: 5px;
   text-align: center;
 }
 .grade-table tr:nth-child(even) {

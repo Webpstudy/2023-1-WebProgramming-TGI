@@ -273,7 +273,7 @@ function Calculator() {
               </div>
             </div>
           </div>
-          <div style={{ marginTop: '80px' }}>
+          <div style={{ marginTop: '130px' }}>
             <button className="cal_btn" onClick={calculateMajorGPA}>
               전공 평점 계산
             </button>

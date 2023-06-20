@@ -126,7 +126,7 @@ header .btnOutline {
 }
 
 .hamburger {
-  cursor: grab;
+  cursor:pointer;
   height: 5vh;
   width: 5vh;
   position: absolute;
@@ -137,7 +137,7 @@ header .btnOutline {
 }
 
 .close {
-  cursor: grab;
+  cursor: pointer;
   height: 5vh;
   width: 5vh;
   position: absolute;
@@ -145,7 +145,7 @@ header .btnOutline {
 
 #menuClBtn {
   width: 6vw;
-  cursor: grab;
+  cursor: pointer;
   height: 6vw;
   padding-top: 5vh;
   padding-left: 4vw;
