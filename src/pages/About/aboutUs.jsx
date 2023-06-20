@@ -3,7 +3,7 @@ import "../../styles/aboutus.css"; // 스타일 파일을 import합니다.
 import propile1 from "../../assets/image/이태희.jpg";
 import propile3 from "../../assets/image/이윤서.jpg";
 import propile2 from "../../assets/image/권좌영.jpg";
-import propile4 from "../../assets/image/이용호.png";
+import propile4 from "../../assets/image/이용호.jpg";
 
 
 function TeamMember(props) {
