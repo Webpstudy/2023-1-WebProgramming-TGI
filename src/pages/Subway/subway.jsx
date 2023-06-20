@@ -76,7 +76,7 @@ const SubwayInfo = ({ line, lineId, direction, styledprops }) => {
     const fetchRealTimeInfo = async () => {
       try {
         const response = await fetch(
-          `http://swopenapi.seoul.go.kr/api/subway/7474424f457079753736684b71744c/json/realtimeStationArrival/1/5/${line}`
+          `http://swopenapi.seoul.go.kr/api/subway/47666556736c797336314d79756545/json/realtimeStationArrival/1/5/${line}`
         );
         const data = await response.json();
 
