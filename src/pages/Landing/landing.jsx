@@ -68,7 +68,7 @@ export const Landing = () => {
     >
       <Header>
         <div className={headerClass}>
-          <div>
+          <div id="webpTGI">
             <h1>
               <Link to="./">WebpTGI</Link>
             </h1>
